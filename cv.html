@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cv — julie kendra</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+--bg:#f4efe7;
+--paper:#fbf8f2;
+--ink:#161412;
+--muted:#746e67;
+--faint:#a8a096;
+--line:#d7cec3;
+--line-dark:#bdb2a7;
+--accent:#536f70;
+--tag-bg:rgba(255,253,248,.42);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+min-height:100vh;
+background:
+radial-gradient(circle at 10% 0%,rgba(210,203,194,.55) 0,transparent 34%),
+radial-gradient(circle at 90% 86%,rgba(222,214,202,.72) 0,transparent 38%),
+var(--bg);
+color:var(--ink);
+font-family:"Inter","Avenir Next","Helvetica Neue",Arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+text-rendering:geometricPrecision;
+}
+
+a{color:inherit;text-decoration:none}
+
+main{
+width:min(1180px,calc(100% - 48px));
+margin:0 auto;
+padding:74px 0;
+}
+
+.archive-header{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+gap:24px;
+margin-bottom:54px;
+border-bottom:1px solid var(--line);
+padding-bottom:22px;
+}
+
+.site-label{
+font-size:11px;
+letter-spacing:.42em;
+text-transform:uppercase;
+color:var(--ink);
+font-weight:700;
+transition:opacity .2s ease;
+}
+
+.site-label:hover{opacity:.55}
+
+.nav{
+display:flex;
+gap:24px;
+align-items:center;
+}
+
+.nav a{
+font-size:11px;
+letter-spacing:.26em;
+text-transform:uppercase;
+color:var(--faint);
+transition:opacity .2s ease;
+}
+
+.nav a:hover{opacity:.55}
+
+.nav a.active{
+color:var(--ink);
+border-bottom:1px solid var(--ink);
+padding-bottom:5px;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:34px;
+margin-bottom:56px;
+}
+
+.hero-title{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:44px;
+min-height:360px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.eyebrow{
+font-size:11px;
+letter-spacing:.34em;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:28px;
+}
+
+h1{
+margin:0;
+font-family:Georgia,"Times New Roman",serif;
+font-size:clamp(58px,8vw,108px);
+line-height:.92;
+letter-spacing:-.06em;
+font-weight:400;
+}
+
+.hero-note{
+border:1px solid var(--line-dark);
+background:
+linear-gradient(90deg,rgba(83,111,112,.09) 1px,transparent 1px),
+linear-gradient(180deg,rgba(83,111,112,.07) 1px,transparent 1px),
+rgba(251,248,242,.72);
+background-size:38px 38px;
+padding:44px;
+min-height:360px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.hero-note p{
+margin:0;
+color:var(--muted);
+font-size:19px;
+line-height:1.75;
+max-width:560px;
+}
+
+.contact-strip{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+margin-bottom:56px;
+}
+
+.contact-item{
+padding:22px 24px;
+border-right:1px solid var(--line);
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:var(--muted);
+text-align:center;
+}
+
+.contact-item:last-child{border-right:0}
+
+.section{margin-bottom:56px}
+
+.section-header{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:20px;
+}
+
+.section-title{
+margin:0;
+color:var(--accent);
+letter-spacing:.34em;
+text-transform:uppercase;
+font-size:11px;
+font-weight:800;
+white-space:nowrap;
+}
+
+.rule{
+height:1px;
+background:var(--line);
+flex:1;
+}
+
+.profile-grid{
+display:grid;
+grid-template-columns:.88fr 1.12fr;
+gap:18px;
+}
+
+.panel{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:34px;
+}
+
+.statement{
+font-family:Georgia,"Times New Roman",serif;
+font-size:31px;
+line-height:1.35;
+letter-spacing:-.04em;
+}
+
+.panel p{
+margin:22px 0 0;
+color:var(--muted);
+font-size:15.5px;
+line-height:1.75;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-top:28px;
+}
+
+.tag{
+border:1px solid var(--line-dark);
+background:var(--tag-bg);
+color:#5e5852;
+font-size:10px;
+letter-spacing:.18em;
+text-transform:uppercase;
+padding:8px 10px;
+line-height:1;
+}
+
+.experience{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+}
+
+.role{
+display:grid;
+grid-template-columns:22% 1fr;
+border-bottom:1px solid var(--line);
+min-height:190px;
+}
+
+.role:last-child{border-bottom:0}
+
+.date{
+padding:28px 26px;
+border-right:1px solid var(--line);
+color:var(--accent);
+font-size:10px;
+letter-spacing:.25em;
+text-transform:uppercase;
+line-height:1.8;
+}
+
+.role-body{
+padding:28px 32px 30px;
+}
+
+.role-title{
+font-family:Georgia,"Times New Roman",serif;
+font-size:34px;
+line-height:1;
+letter-spacing:-.04em;
+font-weight:400;
+margin-bottom:8px;
+}
+
+.company{
+color:var(--muted);
+font-size:13px;
+letter-spacing:.08em;
+text-transform:uppercase;
+margin-bottom:18px;
+}
+
+ul{
+margin:0;
+padding-left:18px;
+}
+
+li{
+color:var(--muted);
+font-size:14.5px;
+line-height:1.65;
+margin-bottom:8px;
+}
+
+.bottom-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.tool-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px 18px;
+color:var(--muted);
+font-size:14px;
+line-height:1.6;
+}
+
+.highlight-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.highlight{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:24px;
+min-height:170px;
+}
+
+.icon{
+font-size:22px;
+color:var(--accent);
+margin-bottom:18px;
+}
+
+.highlight p{
+margin:0;
+color:var(--muted);
+font-size:13.5px;
+line-height:1.55;
+}
+
+footer{
+margin-top:44px;
+border-top:1px solid var(--line);
+padding-top:20px;
+display:flex;
+justify-content:space-between;
+gap:20px;
+color:var(--faint);
+font-size:11px;
+letter-spacing:.26em;
+text-transform:uppercase;
+}
+
+@media(max-width:900px){
+main{
+width:min(100% - 32px,1180px);
+padding:42px 0;
+}
+
+.archive-header,
+footer{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.nav{flex-wrap:wrap}
+
+.hero,
+.profile-grid,
+.bottom-grid,
+.contact-strip,
+.highlight-grid,
+.role{
+grid-template-columns:1fr;
+}
+
+.contact-item,
+.date{
+border-right:0;
+border-bottom:1px solid var(--line);
+text-align:left;
+}
+
+.role:last-child .date{border-bottom:1px solid var(--line)}
+
+.hero-title,
+.hero-note{min-height:auto}
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<header class="archive-header">
+<a class="site-label" href="index.html">julie kendra</a>
+
+<nav class="nav">
+<a href="index.html">index</a>
+<a href="work.html">work</a>
+<a href="art.html">art practice</a>
+<a href="research.html">research</a>
+<a class="active" href="cv.html">cv</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-title">
+<div>
+<div class="eyebrow">operations / creative strategy / systems</div>
+<h1>cv</h1>
+</div>
+</div>
+
+<div class="hero-note">
+<p>
+creative professional with paid experience across startups, production, operations, systems strategy and multidisciplinary projects. i turn scattered inputs into structured workflows, clear narratives and usable systems without losing taste, urgency or cultural signal.
+</p>
+</div>
+</section>
+
+<section class="contact-strip">
+<a class="contact-item" href="mailto:jkendra@live.com">jkendra@live.com</a>
+<a class="contact-item" href="https://linkedin.com/in/juliekendra" target="_blank">linkedin.com/in/juliekendra</a>
+<a class="contact-item" href="https://juliekendra.com">juliekendra.com</a>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">profile</h2>
+<div class="rule"></div>
+</div>
+
+<div class="profile-grid">
+<div class="panel">
+<div class="statement">
+corporate capable, systems-minded and aesthetically sharp.
+</div>
+<p>
+i work best in environments that need structure, speed, taste and practical execution. my background sits between content, operations, production, research communication and creative systems.
+</p>
+</div>
+
+<div class="panel">
+<div class="statement">
+clear workflows for complex environments.
+</div>
+<p>
+strongest at turning messy projects into organized systems: editorial pipelines, QA structures, content operations, production timelines, client coordination and visual communication that makes complicated ideas easier to understand.
+</p>
+
+<div class="tags">
+<span class="tag">content strategy</span>
+<span class="tag">operations</span>
+<span class="tag">workflow design</span>
+<span class="tag">research communication</span>
+<span class="tag">production logistics</span>
+<span class="tag">visual systems</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">experience</h2>
+<div class="rule"></div>
+</div>
+
+<div class="experience">
+
+<article class="role">
+<div class="date">feb 2026<br>may 2026</div>
+<div class="role-body">
+<div class="role-title">operations & product strategy</div>
+<div class="company">oasis health app</div>
+<ul>
+<li>supported research, product organization and operational workflows for a health-focused consumer platform.</li>
+<li>contributed across content structure, qa systems, listing organization, creative execution and internal process improvement.</li>
+<li>helped translate research-heavy consumer health topics into clearer editorial and visual communication systems.</li>
+</ul>
+</div>
+</article>
+
+<article class="role">
+<div class="date">jan 2023<br>feb 2026</div>
+<div class="role-body">
+<div class="role-title">co-founder & product development</div>
+<div class="company">sunlab solutions</div>
+<ul>
+<li>led operational development and product strategy for a b2b company supporting installation, logistics and infrastructure workflows.</li>
+<li>managed systems, client coordination, documentation and operational processes through setup and execution.</li>
+<li>translated messy service workflows into clearer processes that improved follow-through and operational visibility.</li>
+</ul>
+</div>
+</article>
+
+<article class="role">
+<div class="date">jun 2021<br>dec 2024</div>
+<div class="role-body">
+<div class="role-title">associate producer</div>
+<div class="company">disrupt events</div>
+<ul>
+<li>coordinated event production and onsite logistics for nft la, nft nyc and miami art basel activations.</li>
+<li>managed vendors, schedules, setup, breakdown and day-of operational execution under pressure.</li>
+<li>worked inside fast-moving event environments where timing, coordination and live problem-solving were critical.</li>
+</ul>
+</div>
+</article>
+
+<article class="role">
+<div class="date">sep 2018<br>oct 2023</div>
+<div class="role-body">
+<div class="role-title">production assistant</div>
+<div class="company">self employed</div>
+<ul>
+<li>supported production, logistics, scheduling and on-set coordination for film, media and live events.</li>
+<li>collaborated with cross-functional teams to keep projects on time and moving through execution.</li>
+</ul>
+</div>
+</article>
+
+<article class="role">
+<div class="date">oct 2016<br>mar 2020</div>
+<div class="role-body">
+<div class="role-title">real estate rental manager</div>
+<div class="company">self employed</div>
+<ul>
+<li>built and managed short- and long-term rental operations for real estate developers.</li>
+<li>designed operational systems, managed bookings, logistics and guest experience from end to end.</li>
+<li>strengthened client satisfaction and operational efficiency through proactive communication and organization.</li>
+</ul>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">expertise</h2>
+<div class="rule"></div>
+</div>
+
+<div class="bottom-grid">
+<div class="panel">
+<div class="tags" style="margin-top:0;">
+<span class="tag">content strategy</span>
+<span class="tag">brand storytelling</span>
+<span class="tag">content operations</span>
+<span class="tag">campaign management</span>
+<span class="tag">seo & keyword research</span>
+<span class="tag">cross functional collaboration</span>
+<span class="tag">project management</span>
+<span class="tag">event production</span>
+<span class="tag">product operations</span>
+</div>
+</div>
+
+<div class="panel">
+<div class="tool-list">
+<span>notion</span>
+<span>claude</span>
+<span>perplexity</span>
+<span>adobe creative suite</span>
+<span>figma</span>
+<span>airtable</span>
+<span>ai-assisted workflows</span>
+<span>content systems</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">highlights</h2>
+<div class="rule"></div>
+</div>
+
+<div class="highlight-grid">
+<div class="highlight">
+<div class="icon">◎</div>
+<p>experience across startups, events, media and real estate, bringing versatility and strategic thinking.</p>
+</div>
+
+<div class="highlight">
+<div class="icon">⌬</div>
+<p>skilled at leading cross-functional teams and driving projects from concept to completion.</p>
+</div>
+
+<div class="highlight">
+<div class="icon">↗</div>
+<p>strong in content strategy, creative coordination and operational workflows.</p>
+</div>
+
+<div class="highlight">
+<div class="icon">✺</div>
+<p>resourceful problem solver who thrives in fast-paced, high-pressure environments.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">education</h2>
+<div class="rule"></div>
+</div>
+
+<div class="panel">
+<div class="statement" style="font-size:28px;">universidad iberoamericana</div>
+<p>
+marketing, communications & digital media. various advanced courses in programming and data analysis as a bonus.
+</p>
+</div>
+</section>
+
+<footer>
+<span>juliekendra.com/cv</span>
+<span>operations / creative strategy / systems</span>
+</footer>
+
+</main>
+</body>
+</html>
