@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>research — julie kendra</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f4efe7;
+      --paper: #fbf8f2;
+      --paper-soft: #f7f2ea;
+      --ink: #161412;
+      --muted: #746e67;
+      --faint: #a8a096;
+      --line: #d7cec3;
+      --line-dark: #bdb2a7;
+      --accent: #536f70;
+      --tag-bg: rgba(255, 253, 248, 0.42);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(210, 203, 194, 0.55) 0, transparent 34%),
+        radial-gradient(circle at 90% 86%, rgba(222, 214, 202, 0.72) 0, transparent 38%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+      text-transform: lowercase;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 74px 0;
+    }
+
+    .archive-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 54px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+    }
+
+    .site-label {
+      font-size: 11px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      transition: opacity .2s ease;
+    }
+
+    .site-label:hover {
+      opacity: .55;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav a {
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--faint);
+      text-decoration: none;
+      transition: opacity .2s ease;
+    }
+
+    .nav a:hover {
+      opacity: .55;
+    }
+
+    .nav a.active {
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 5px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      margin-bottom: 56px;
+    }
+
+    .hero-title {
+      border: 1px solid var(--line-dark);
+      background: rgba(251, 248, 242, 0.68);
+      padding: 44px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 8vw, 108px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 400;
+    }
+
+    .hero-note {
+      border: 1px solid var(--line-dark);
+      background:
+        linear-gradient(90deg, rgba(83, 111, 112, 0.09) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(83, 111, 112, 0.07) 1px, transparent 1px),
+        rgba(251, 248, 242, 0.72);
+      background-size: 38px 38px;
+      padding: 44px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    .system-map {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line-dark);
+      margin-bottom: 56px;
+      background: rgba(251, 248, 242, 0.64);
+    }
+
+    .node {
+      min-height: 190px;
+      padding: 26px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .node:last-child {
+      border-right: 0;
+    }
+
+    .node-number {
+      font-size: 10px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .node h2 {
+      margin: 30px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .node p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--accent);
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      flex: 1;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .research-card {
+      border: 1px solid var(--line-dark);
+      background: rgba(251, 248, 242, 0.68);
+      padding: 32px;
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .research-card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 400;
+    }
+
+    .research-card p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      border: 1px solid var(--line-dark);
+      background: var(--tag-bg);
+      color: #5e5852;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      line-height: 1;
+    }
+
+    .index-table {
+      border: 1px solid var(--line-dark);
+      background: rgba(251, 248, 242, 0.68);
+    }
+
+    .index-row {
+      display: grid;
+      grid-template-columns: 28% 1fr 18%;
+      border-bottom: 1px solid var(--line);
+      min-height: 92px;
+    }
+
+    .index-row:last-child {
+      border-bottom: 0;
+    }
+
+    .index-cell {
+      padding: 22px 24px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .index-cell:last-child {
+      border-right: 0;
+    }
+
+    .index-key {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .quote-block {
+      border: 1px solid var(--line-dark);
+      background:
+        radial-gradient(circle at 82% 12%, rgba(83, 111, 112, 0.11), transparent 32%),
+        rgba(251, 248, 242, 0.68);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .quote-symbol {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--accent);
+      font-size: 96px;
+      line-height: .8;
+    }
+
+    .quote-text {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+    }
+
+    .quote-sub {
+      margin-top: 18px;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+
+
+    .theory-table {
+      border: 1px solid var(--line-dark);
+      background: rgba(251, 248, 242, 0.68);
+    }
+
+    .theory-row {
+      display: grid;
+      grid-template-columns: 24% 1fr;
+      border-bottom: 1px solid var(--line);
+      min-height: 108px;
+    }
+
+    .theory-row:last-child {
+      border-bottom: 0;
+    }
+
+    .theory-key {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+    }
+
+    .theory-copy {
+      padding: 24px 28px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+      display: flex;
+      align-items: center;
+    }
+
+    .protocol-block {
+      border: 1px solid var(--line-dark);
+      background:
+        linear-gradient(90deg, rgba(83, 111, 112, 0.09) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(83, 111, 112, 0.07) 1px, transparent 1px),
+        rgba(251, 248, 242, 0.72);
+      background-size: 38px 38px;
+      padding: 38px;
+      margin-bottom: 56px;
+    }
+
+    .protocol-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 980px;
+    }
+
+    footer {
+      margin-top: 44px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--faint);
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        width: min(100% - 32px, 1180px);
+        padding: 42px 0;
+      }
+
+      .archive-header,
+  
+    .theory-table {
+      border: 1px solid var(--line-dark);
+      background: rgba(251, 248, 242, 0.68);
+    }
+
+    .theory-row {
+      display: grid;
+      grid-template-columns: 24% 1fr;
+      border-bottom: 1px solid var(--line);
+      min-height: 108px;
+    }
+
+    .theory-row:last-child {
+      border-bottom: 0;
+    }
+
+    .theory-key {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+    }
+
+    .theory-copy {
+      padding: 24px 28px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+      display: flex;
+      align-items: center;
+    }
+
+    .protocol-block {
+      border: 1px solid var(--line-dark);
+      background:
+        linear-gradient(90deg, rgba(83, 111, 112, 0.09) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(83, 111, 112, 0.07) 1px, transparent 1px),
+        rgba(251, 248, 242, 0.72);
+      background-size: 38px 38px;
+      padding: 38px;
+      margin-bottom: 56px;
+    }
+
+    .protocol-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 980px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .hero,
+      .research-grid,
+      .quote-block {
+        grid-template-columns: 1fr;
+      }
+
+      .system-map {
+        grid-template-columns: 1fr;
+      }
+
+      .node {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .node:last-child {
+        border-bottom: 0;
+      }
+
+      .index-row {
+        grid-template-columns: 1fr;
+      }
+
+      .index-cell {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .index-cell:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header class="archive-header">
+      <a class="site-label" href="index.html">julie kendra</a>
+
+      <nav class="nav">
+        <a href="index.html">index</a>
+        <a href="work.html">work</a>
+        <a href="art.html">art practice</a>
+        <a class="active" href="research.html">research</a>
+        <a href="cv.html">cv</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-title">
+        <div>
+          <div class="eyebrow">distributed intelligence / symbolic indexing / computational culture / modular authorship</div>
+          <h1>research</h1>
+        </div>
+      </div>
+
+      <div class="hero-note">
+        <p>
+          research into decentralized indexing, symbolic archives, distributed authorship, computational culture, biosymbolic systems and internet-native creative environments.
+
+          the practice investigates how identities, images, archives, attention and value circulate between modular systems rather than fixed personal brands.
+        </p>
+      </div>
+    </section>
+
+    <section class="system-map" aria-label="research system map">
+      <article class="node">
+        <div class="node-number">layer 01</div>
+        <div>
+          <h2>modular identity</h2>
+          <p>identity is treated as a protocol layer: an interface for transmitting atmosphere, value and symbolic behavior.</p>
+        </div>
+      </article>
+
+      <article class="node">
+        <div class="node-number">layer 02</div>
+        <div>
+          <h2>symbolic indexing</h2>
+          <p>images, names, motifs and signals become ranked memory objects inside a living archive.</p>
+        </div>
+      </article>
+
+      <article class="node">
+        <div class="node-number">layer 03</div>
+        <div>
+          <h2>distributed authorship</h2>
+          <p>creative environments act as separate nodes rather than one flattened personal brand.</p>
+        </div>
+      </article>
+
+      <article class="node">
+        <div class="node-number">layer 04</div>
+        <div>
+          <h2>signal circulation</h2>
+          <p>attention, memory, image, data, aura and belief move through feedback loops between identities.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">research tracks</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="research-grid">
+        <article class="research-card">
+          <div>
+            <h3>modular authorship</h3>
+            <p>
+              how one creator can split function across multiple names, atmospheres and symbolic containers without collapsing into a single personal brand.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">identity</span>
+            <span class="tag">authorship</span>
+            <span class="tag">containers</span>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <div>
+            <h3>internet native practice</h3>
+            <p>
+              how webcore aesthetics, pseudonymous accounts, media fragments, moodboards, avatars and platform native signals become an art making structure rather than just a style.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">webcore</span>
+            <span class="tag">platforms</span>
+            <span class="tag">subculture</span>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <div>
+            <h3>symbolic archives</h3>
+            <p>
+              how images, medical data, botanical systems, diagrams, sigils and recurring motifs can be indexed into a living archive that generates future work.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">archive</span>
+            <span class="tag">indexing</span>
+            <span class="tag">symbols</span>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <div>
+            <h3>computational culture</h3>
+            <p>
+              how digital communities, attention markets, decentralized systems and collective ranking mechanisms reshape authorship, visibility and value.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">attention</span>
+            <span class="tag">markets</span>
+            <span class="tag">coordination</span>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <div>
+            <h3>decentralized indexing</h3>
+            <p>
+              investigation into peer-to-peer indexing systems, distributed consensus, computational data markets and the circulation of value through attention, compute and symbolic contribution.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">blockchain</span>
+            <span class="tag">indexing</span>
+            <span class="tag">consensus</span>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <div>
+            <h3>networked myth</h3>
+            <p>
+              how internet images become vessels for belief, social belonging, style transmission and collective memory inside niche online environments.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">myth</span>
+            <span class="tag">aura</span>
+            <span class="tag">image culture</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">protocol notes</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="protocol-block">
+        <p>
+          this research borrows from decentralized indexing, peer-to-peer data environments, attention economies and computational feedback systems. it is also interested in how images acquire aura online: how a symbol, avatar, outfit, signal or aesthetic fragment can behave like a shared protocol for recognition, belonging and value.
+        </p>
+      </div>
+
+      <div class="theory-table">
+        <div class="theory-row">
+          <div class="theory-key">image as vessel</div>
+          <div class="theory-copy">images are treated as containers for compressed social information: style, identity, longing, status, belief, memory and subcultural orientation.</div>
+        </div>
+
+        <div class="theory-row">
+          <div class="theory-key">aura systems</div>
+          <div class="theory-copy">aesthetic environments are studied as atmospheres that produce recognition before explanation. the image is not only seen. it recruits, sorts and signals.</div>
+        </div>
+
+        <div class="theory-row">
+          <div class="theory-key">pseudonymous self</div>
+          <div class="theory-copy">the pseudonymous identity becomes a working interface: a mask, container and transmission layer for creative behavior that does not need to map directly onto the offline self.</div>
+        </div>
+
+        <div class="theory-row">
+          <div class="theory-key">memetic value</div>
+          <div class="theory-copy">value forms through circulation, repetition, remix, recognition and collective indexing. a symbol becomes stronger as more people know how to read it.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">working index</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="index-table">
+        <div class="index-row">
+          <div class="index-cell index-key">material self</div>
+          <div class="index-cell">@jkendrart holds physical reality, surface, color, memory residue and human experience</div>
+          <div class="index-cell">body / matter</div>
+        </div>
+
+        <div class="index-row">
+          <div class="index-cell index-key">entropy system</div>
+          <div class="index-cell">@dreamlandcata holds unstable identity loops, glitch, music, video, horror atmosphere and future fashion language</div>
+          <div class="index-cell">signal / collapse</div>
+        </div>
+
+        <div class="index-row">
+          <div class="index-cell index-key">biosymbolic archive</div>
+          <div class="index-cell">@lubinousart holds medical data, botanical systems, symbolic indexing and sacred scientific image language</div>
+          <div class="index-cell">archive / repair</div>
+        </div>
+
+        <div class="index-row">
+          <div class="index-cell index-key">shared system</div>
+          <div class="index-cell">the environments operate as distributed interfaces exchanging symbolic value, memory, attention, atmosphere and archival residue across interconnected systems</div>
+          <div class="index-cell">author / network</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-block">
+      <div class="quote-symbol">∴</div>
+      <div>
+        <div class="quote-text">
+          the practice behaves less like a singular identity and more like a distributed environment composed of interacting symbolic systems.
+        </div>
+        <div class="quote-sub">
+          archives, images, signals, computation and authorship circulate between environments through indexing, feedback and modular participation.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>jkendra.dev/research</span>
+      <span><a href="index.html">return index</a></span>
+    </footer>
+  </main>
+</body>
+</html>
