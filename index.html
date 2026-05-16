@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Julie Kendra</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -14,21 +15,21 @@
       --ink: #161413;
       --muted: #6f6a64;
       --line: #d8cec2;
-      --soft: #ebe2d7;
-      --accent: #8fa6a4;
       --accent-dark: #536f70;
-      --card: rgba(255, 252, 247, 0.72);
+      --card: rgba(255, 252, 247, 0.68);
     }
 
     body {
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at 12% 0%, rgba(143,166,164,.55) 0, rgba(143,166,164,.22) 22%, transparent 42%),
-        radial-gradient(circle at 90% 80%, rgba(220,204,187,.75) 0, transparent 38%),
+        radial-gradient(circle at 8% 0%, rgba(143,166,164,.46) 0, rgba(143,166,164,.18) 24%, transparent 44%),
+        radial-gradient(circle at 94% 86%, rgba(220,204,187,.78) 0, transparent 42%),
         var(--bg);
       color: var(--ink);
       font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
     }
 
     a {
@@ -37,13 +38,12 @@
     }
 
     .page {
-      width: min(1180px, calc(100% - 40px));
+      width: min(1180px, calc(100% - 48px));
       margin: 0 auto;
       padding: 48px 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     header {
@@ -51,14 +51,14 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      padding-bottom: 60px;
+      padding-bottom: 92px;
     }
 
     .brand {
       letter-spacing: 8px;
       font-size: 14px;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     nav {
@@ -70,39 +70,20 @@
       text-transform: uppercase;
     }
 
-    .hero {
+    nav a {
+      transition: opacity .2s ease;
+    }
+
+    nav a:hover {
+      opacity: .55;
+    }
+
+    .intro {
       display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 72px;
-      align-items: center;
-    }
-
-    .portrait-wrap {
-      position: relative;
-      width: min(420px, 100%);
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      padding: 10px;
-      background: rgba(255,255,255,.7);
-      box-shadow: 0 28px 80px rgba(40,32,24,.14);
-    }
-
-    .portrait-wrap:before {
-      content: "";
-      position: absolute;
-      inset: -26px;
-      border: 1px solid rgba(83,111,112,.32);
-      border-radius: 50%;
-      z-index: -1;
-    }
-
-    .portrait {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      filter: grayscale(100%);
-      display: block;
+      grid-template-columns: 1fr .92fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 54px;
     }
 
     .eyebrow {
@@ -118,42 +99,42 @@
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 400;
-      font-size: clamp(58px, 8vw, 104px);
-      line-height: .92;
-      letter-spacing: -4px;
+      font-size: clamp(72px, 9vw, 138px);
+      line-height: .86;
+      letter-spacing: -6px;
     }
 
     .subline {
-      margin-top: 28px;
-      max-width: 620px;
+      margin: 0 0 8px;
       color: var(--muted);
-      font-size: 20px;
-      line-height: 1.65;
+      font-size: 21px;
+      line-height: 1.7;
+      max-width: 560px;
     }
 
     .doors {
-      margin-top: 54px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+      margin-top: 18px;
     }
 
     .door {
-      min-height: 230px;
+      min-height: 390px;
       background: var(--card);
-      border: 1px solid rgba(216,206,194,.9);
+      border: 1px solid rgba(216,206,194,.95);
       backdrop-filter: blur(16px);
-      padding: 28px;
+      padding: 36px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease; 
     }
 
     .door:hover {
       transform: translateY(-6px);
       border-color: var(--accent-dark);
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
     }
 
     .door-number {
@@ -161,33 +142,39 @@
       font-size: 12px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 44px;
     }
 
     .door h2 {
-      margin: 0 0 16px;
-      font-size: 28px;
+      margin: 0 0 26px;
+      font-size: clamp(46px, 4.6vw, 70px);
+      line-height: .9;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     .door p {
       margin: 0;
+      max-width: 290px;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: 16px;
+      line-height: 1.65;
     }
 
     .arrow {
-      margin-top: 28px;
+      margin-top: 36px;
       color: var(--accent-dark);
-      font-size: 22px;
+      font-size: 30px;
     }
 
     footer {
-      margin-top: 72px;
-      padding-top: 28px;
+      margin-top: auto;
+      padding-top: 72px;
+    }
+
+    .footer-inner {
       border-top: 1px solid var(--line);
+      padding-top: 28px;
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -197,93 +184,115 @@
     }
 
     @media (max-width: 900px) {
+      .page {
+        width: min(100% - 32px, 1180px);
+        padding: 38px 0;
+      }
+
       header {
         align-items: flex-start;
         flex-direction: column;
-        padding-bottom: 40px;
+        padding-bottom: 56px;
       }
 
       nav {
         flex-wrap: wrap;
       }
 
-      .hero {
+      .intro {
         grid-template-columns: 1fr;
-        gap: 44px;
+        gap: 28px;
+        margin-bottom: 36px;
       }
 
-      .portrait-wrap {
-        width: min(300px, 80vw);
+      h1 {
+        font-size: clamp(62px, 17vw, 102px);
       }
 
       .doors {
         grid-template-columns: 1fr;
       }
 
-      footer {
+      .door {
+        min-height: 280px;
+      }
+
+      .footer-inner {
         flex-direction: column;
       }
     }
   </style>
 </head>
+
 <body>
   <main class="page">
     <header>
       <a class="brand" href="index.html">Julie Kendra</a>
+
       <nav>
         <a href="work.html">Work</a>
-        <a href="art.html">Art Practice</a>
+        <a href="art.html">Art</a>
         <a href="research.html">Research</a>
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="portrait-wrap">
-      <img class="portrait" src="portrait.jpg">
-    </div>
-
+    <section class="intro">
       <div>
-        <div class="eyebrow">Systems • Art • Research</div>
+        <div class="eyebrow">Work • Art • Research</div>
         <h1>Julie<br>Kendra</h1>
-        <p class="subline">
-          Creative strategist working across content systems, operational workflows,
-          visual practice and internet-native research.
-        </p>
-
-        <section class="doors" aria-label="Portfolio sections">
-          <a class="door" href="work.html">
-            <div>
-              <div class="door-number">01</div>
-              <h2>Work</h2>
-              <p>Content strategy, operations, production, startup systems, campaigns and selected professional projects.</p>
-            </div>
-            <div class="arrow">→</div>
-          </a>
-
-          <a class="door" href="art.html">
-            <div>
-              <div class="door-number">02</div>
-              <h2>Art Practice</h2>
-              <p>Painting, photography, collage, installations, transmissions and visual experiments.</p>
-            </div>
-            <div class="arrow">→</div>
-          </a>
-
-          <a class="door" href="research.html">
-            <div>
-              <div class="door-number">03</div>
-              <h2>Research</h2>
-              <p>Internet systems, decentralized coordination, memetics, online behavior and pseudonymous ecosystems.</p>
-            </div>
-            <div class="arrow">→</div>
-          </a>
-        </section>
       </div>
+
+      <p class="subline">
+        Creative strategist working across content systems, operational workflows,
+        visual practice and internet-native research.
+      </p>
+    </section>
+
+    <section class="doors" aria-label="Portfolio sections">
+
+      <a class="door" href="work.html">
+        <div>
+          <div class="door-number">01</div>
+          <h2>Projects</h2>
+          <p>
+            Content strategy, operations, production, startup systems,
+            campaigns and selected professional projects.
+          </p>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="door" href="art.html">
+        <div>
+          <div class="door-number">02</div>
+          <h2>Art</h2>
+          <p>
+            Painting, photography, collage, installations,
+            transmissions and visual experiments.
+          </p>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="door" href="research.html">
+        <div>
+          <div class="door-number">03</div>
+          <h2>Research</h2>
+          <p>
+            Internet systems, decentralized coordination, memetics,
+            online behavior and pseudonymous ecosystems.
+          </p>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
     </section>
 
     <footer>
-      <span>juliekendra.com</span>
-      <span>content systems / art practice / internet research</span>
+      <div class="footer-inner">
+        <span>jkendra.dev</span>
+        <span>selected work / art practice / internet research</span>
+      </div>
     </footer>
   </main>
 </body>
