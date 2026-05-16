@@ -184,43 +184,58 @@
     }
 
     @media (max-width: 900px) {
-      .page {
-        width: min(100% - 32px, 1180px);
-        padding: 38px 0;
-      }
+  .page {
+    width: min(100% - 32px, 1180px);
+    padding: 38px 0;
+  }
 
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-        padding-bottom: 56px;
-      }
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 56px;
+  }
 
-      nav {
-        flex-wrap: wrap;
-      }
+  nav {
+    flex-wrap: wrap;
+  }
 
-      .intro {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        margin-bottom: 36px;
-      }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 36px;
+  }
 
-      h1 {
-        font-size: clamp(62px, 17vw, 102px);
-      }
+  h1 {
+    font-size: clamp(62px, 17vw, 102px);
+  }
 
-      .doors {
-        grid-template-columns: 1fr;
-      }
+  .doors {
+    grid-template-columns: 1fr;
+  }
 
-      .door {
-        min-height: 280px;
-      }
+  .footer-inner {
+    flex-direction: column;
+  }
+}
 
-      .footer-inner {
-        flex-direction: column;
-      }
-    }
+.title {
+  width: fit-content;
+
+  margin-top: 18px;
+  padding: 14px 18px;
+
+  border: 1px solid rgba(216,206,194,.95);
+  background: rgba(255,252,247,.38);
+
+  color: #161413;
+  font-size: clamp(10px, 1vw, 13px);
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
   </style>
 </head>
 
@@ -235,9 +250,12 @@
     </header>
 
     <section class="intro">
-      <div>
-        <h1>Julie<br>Kendra</h1>
-      </div>
+    <div>
+  <h1>Julie<br>Kendra</h1>
+
+<div class="title">Creative Developer</div>
+  </div>
+</div>
 
       <p class="subline">
         Creative strategist working across content systems, operational workflows,
@@ -284,5 +302,4 @@
       </a>
 
     </section>
-    </footer>
   </main>
