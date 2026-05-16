@@ -39,6 +39,11 @@
       text-rendering: geometricPrecision;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     main {
       width: min(1180px, calc(100% - 48px));
       margin: 0 auto;
@@ -55,33 +60,72 @@
       padding-bottom: 22px;
     }
 
-.site-label {
-  font-size: 11px;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 700;
-  transition: opacity .2s ease;
-}
-
-.site-label:hover {
-  opacity: .55;
-}
-
-    .system-label {
+    .site-label {
       font-size: 11px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 700;
+      transition: opacity .2s ease;
+    }
+
+    .site-label:hover {
+      opacity: .55;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      align-items: center;
+    }
+
+    .nav a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity .2s ease;
+    }
+
+    .nav a:hover {
+      opacity: .55;
+    }
+
+    .nav a.active {
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 5px;
+    }
+
+    .section-label {
+      margin: 54px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
       color: var(--faint);
-      text-align: right;
-      line-height: 1.8;
+      font-size: 11px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .section-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
     }
 
     .cards {
       display: grid;
       grid-template-columns: 1fr;
       gap: 18px;
+    }
+
+    .secondary-cards {
+      margin-top: 0;
     }
 
     .card {
@@ -99,6 +143,8 @@
       border-right: 1px solid var(--line);
       overflow: hidden;
       background-color: var(--paper-soft);
+      display: block;
+      transition: filter .35s ease, transform .35s ease;
     }
 
     .visual::before,
@@ -109,9 +155,22 @@
       pointer-events: none;
     }
 
+    .visual::before {
+      transition: opacity .35s ease, transform .45s ease;
+    }
+
     .visual::after {
       opacity: 0.28;
       mix-blend-mode: multiply;
+    }
+
+    .visual:hover {
+      filter: brightness(1.06);
+    }
+
+    .visual:hover::before {
+      opacity: 0.58;
+      transform: scale(1.03);
     }
 
     .material {
@@ -121,15 +180,14 @@
         linear-gradient(135deg, #efe5d9 0%, #fbf8f2 62%, #e3d8ca 100%);
     }
 
-   .material::before {
-  background:
-    linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)),
-    url('jkendrart_cover.jpg') center/cover,
-    repeating-linear-gradient(72deg, rgba(50, 42, 34, 0.10) 0 1px, transparent 1px 16px),
-    repeating-linear-gradient(5deg, rgba(255, 255, 255, 0.32) 0 2px, transparent 2px 19px);
-
-  opacity: 0.24;
-}
+    .material::before {
+      background:
+        linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)),
+        url('jkendrart_cover.jpg') center/cover,
+        repeating-linear-gradient(72deg, rgba(50, 42, 34, 0.10) 0 1px, transparent 1px 16px),
+        repeating-linear-gradient(5deg, rgba(255, 255, 255, 0.32) 0 2px, transparent 2px 19px);
+      opacity: 0.24;
+    }
 
     .material::after {
       background:
@@ -144,15 +202,14 @@
         linear-gradient(135deg, #111111 0%, #211e1e 58%, #0d0d0e 100%);
     }
 
-   .horror::before {
-  background:
-    linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.42)),
-    url('dreamcata_cover.jpg') center/cover,
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 13px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 28px);
-
-  opacity: 0.22;
-}
+    .horror::before {
+      background:
+        linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.42)),
+        url('dreamcata_cover.jpg') center/cover,
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 13px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 28px);
+      opacity: 0.22;
+    }
 
     .horror::after {
       background:
@@ -169,26 +226,65 @@
         linear-gradient(135deg, #fbfbf6 0%, #e8efec 52%, #f8f3e9 100%);
     }
 
-   .luminous::before {
-  background:
-    linear-gradient(rgba(255,255,255,.34), rgba(255,255,255,.34)),
-    url('lubinousart_cover.jpg') center/cover,
-    linear-gradient(90deg, rgba(83, 111, 112, 0.13) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(83, 111, 112, 0.10) 1px, transparent 1px);
-
-  background-size:
-    cover,
-    cover,
-    36px 36px,
-    36px 36px;
-
-  opacity: 0.24;
-}
+    .luminous::before {
+      background:
+        linear-gradient(rgba(255,255,255,.34), rgba(255,255,255,.34)),
+        url('lubinousart_cover.jpg') center/cover,
+        linear-gradient(90deg, rgba(83, 111, 112, 0.13) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(83, 111, 112, 0.10) 1px, transparent 1px);
+      background-size: cover, cover, 36px 36px, 36px 36px;
+      opacity: 0.24;
+    }
 
     .luminous::after {
       background:
         radial-gradient(circle at 50% 50%, transparent 0 19%, rgba(83, 111, 112, 0.10) 20% 20.8%, transparent 22%),
         linear-gradient(180deg, transparent, rgba(83, 111, 112, 0.06));
+    }
+
+    .photography {
+      background:
+        radial-gradient(circle at 22% 20%, rgba(168, 160, 150, 0.44) 0, transparent 34%),
+        radial-gradient(circle at 80% 78%, rgba(83, 111, 112, 0.18) 0, transparent 42%),
+        linear-gradient(135deg, #f6f0e8 0%, #e9e3d9 55%, #fbf8f2 100%);
+    }
+
+    .photography::before {
+      background:
+        linear-gradient(rgba(255,255,255,.26), rgba(255,255,255,.26)),
+        url('photography_cover.jpg') center/cover,
+        repeating-linear-gradient(0deg, rgba(83, 111, 112, 0.08) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(90deg, rgba(83, 111, 112, 0.06) 0 1px, transparent 1px 22px);
+      opacity: 0.22;
+    }
+
+    .photography::after {
+      background:
+        linear-gradient(180deg, transparent, rgba(83, 111, 112, 0.08)),
+        radial-gradient(circle at 55% 42%, rgba(255,255,255,.32), transparent 32%);
+    }
+
+    .video {
+      background:
+        radial-gradient(circle at 76% 18%, rgba(83, 111, 112, 0.24) 0, transparent 32%),
+        radial-gradient(circle at 18% 78%, rgba(35, 32, 29, 0.18) 0, transparent 40%),
+        linear-gradient(135deg, #e7dfd3 0%, #f7f2ea 52%, #d8cec2 100%);
+    }
+
+    .video::before {
+      background:
+        linear-gradient(rgba(255,255,255,.24), rgba(255,255,255,.24)),
+        url('videography_cover.jpg') center/cover,
+        repeating-linear-gradient(90deg, rgba(22, 20, 18, 0.08) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(0deg, rgba(83, 111, 112, 0.07) 0 1px, transparent 1px 24px);
+      opacity: 0.22;
+    }
+
+    .video::after {
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%),
+        linear-gradient(180deg, transparent, rgba(22, 20, 18, 0.08));
+      mix-blend-mode: multiply;
     }
 
     .visual-label {
@@ -214,11 +310,19 @@
     }
 
     .handle {
+      display: inline-block;
+      width: fit-content;
       font-size: 11px;
       letter-spacing: 0.34em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 20px;
+      text-decoration: none;
+      transition: opacity .2s ease;
+    }
+
+    .handle:hover {
+      opacity: .55;
     }
 
     h1 {
@@ -229,6 +333,18 @@
       letter-spacing: -0.045em;
       font-weight: 400;
       color: var(--ink);
+    }
+
+    .card-link {
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity .25s ease;
+    }
+
+    .card-link:hover {
+      opacity: .58;
     }
 
     .description {
@@ -284,28 +400,14 @@
         align-items: flex-start;
       }
 
-    .nav {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-}
+      .nav {
+        flex-wrap: wrap;
+        gap: 22px;
+      }
 
-.nav a {
-  font-size: 11px;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--faint);
-  text-decoration: none;
-  transition: opacity .2s ease;
-}
-
-.nav a:hover {
-  opacity: .55;
-}
-
-.nav a.active {
-  color: var(--ink);
-}
+      .section-label {
+        margin-top: 44px;
+      }
 
       .card {
         grid-template-columns: 1fr;
@@ -321,78 +423,40 @@
         padding: 32px 26px;
       }
     }
-    .handle {
-  display: inline-block;
-  text-decoration: none;
-  transition: opacity .2s ease;
-}
-
-.handle:hover {
-  opacity: .55;
-}
-.card-link {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  transition: opacity .25s ease;
-}
-
-.card-link:hover {
-  opacity: .58;
-}
-
-.nav {
-  display: flex;
-  gap: 24px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.nav a.active {
-  color: var(--ink);
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 5px;
-}
-
   </style>
 </head>
 
 <body>
   <main>
-<header class="archive-header">
-  <a class="site-label" href="index.html">julie kendra</a>
+    <header class="archive-header">
+      <a class="site-label" href="index.html">julie kendra</a>
 
-  <nav class="nav">
-    <a href="index.html">index</a>
-    <a href="work.html">work</a>
-    <a class="active" href="art_practice.html">art practice</a>
-    <a href="research.html">research</a>
-    <a href="cv.html">cv</a>
-  </nav>
-</header>
+      <nav class="nav">
+        <a href="index.html">index</a>
+        <a href="work.html">work</a>
+        <a class="active" href="art_practice.html">art practice</a>
+        <a href="research.html">research</a>
+        <a href="cv.html">cv</a>
+      </nav>
+    </header>
+
     <section class="cards" aria-label="art practice index">
       <article class="card">
-        <div class="visual material">
+        <a class="visual material" href="jkendrart.html" aria-label="open material based painting practice">
           <div class="visual-label">physical / material</div>
-        </div>
+        </a>
 
         <div class="text">
-          <a class="handle" href="https://instagram.com/jkendrart" target="_blank">
-  @jkendrart
-</a>
+          <a class="handle" href="https://instagram.com/jkendrart" target="_blank" rel="noopener">@jkendrart</a>
+
           <a class="card-link" href="jkendrart.html">
-  <h1>material based painting practice</h1>
-</a>
+            <h1>material based painting</h1>
+          </a>
+
           <div class="description">
             acrylic / plaster / layered surfaces / memory residue / emotional architecture / illness / leaving / physical material process
           </div>
+
           <div class="tags">
             <span class="tag">acrylic</span>
             <span class="tag">plaster</span>
@@ -403,20 +467,21 @@
       </article>
 
       <article class="card">
-        <div class="visual horror">
+        <a class="visual horror" href="dreamlandcata.html" aria-label="open entropy media">
           <div class="visual-label">horror / entropy</div>
-        </div>
+        </a>
 
         <div class="text">
-          <a class="handle" href="https://instagram.com/dreamlandcata" target="_blank">
-  @dreamlandcata
-</a>
+          <a class="handle" href="https://instagram.com/dreamlandcata" target="_blank" rel="noopener">@dreamlandcata</a>
+
           <a class="card-link" href="dreamlandcata.html">
-  <h1>entropy / media </h1>
-</a>
+            <h1>entropy / media</h1>
+          </a>
+
           <div class="description">
             music / video / hand drawn cybersigilism / glitch art / digital mythology / horror atmospheres / unstable identity loops / future fashion language
           </div>
+
           <div class="tags">
             <span class="tag">music</span>
             <span class="tag">video</span>
@@ -428,20 +493,21 @@
       </article>
 
       <article class="card">
-        <div class="visual luminous">
+        <a class="visual luminous" href="lubinousart.html" aria-label="open biosymbolic research system">
           <div class="visual-label">luminous / archive</div>
-        </div>
+        </a>
 
         <div class="text">
-          <a class="handle" href="https://instagram.com/lubinousart" target="_blank">
-  @lubinousart
-</a>
+          <a class="handle" href="https://instagram.com/lubinousart" target="_blank" rel="noopener">@lubinousart</a>
+
           <a class="card-link" href="lubinousart.html">
-  <h1>biosymbolic research system</h1>
-</a>
+            <h1>biosymbolic research system</h1>
+          </a>
+
           <div class="description">
             medical data / botanical systems / symbolic indexing / archival reconstruction / human optimization / sacred scientific image language
           </div>
+
           <div class="tags">
             <span class="tag">medical data</span>
             <span class="tag">botanical systems</span>
@@ -452,9 +518,59 @@
       </article>
     </section>
 
+    <div class="section-label">image + motion practices</div>
+
+    <section class="cards secondary-cards" aria-label="photography and videography index">
+      <article class="card">
+        <a class="visual photography" href="photography.html" aria-label="open photography image making">
+          <div class="visual-label">photography / image making</div>
+        </a>
+
+        <div class="text">
+          <a class="card-link" href="photography.html">
+            <h1>photography / image making</h1>
+          </a>
+
+          <div class="description">
+            portraiture / staged environments / models / atmosphere construction / lighting systems / symbolic composition / emotional image language
+          </div>
+
+          <div class="tags">
+            <span class="tag">portraiture</span>
+            <span class="tag">models</span>
+            <span class="tag">lighting</span>
+            <span class="tag">composition</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="visual video" href="videography.html" aria-label="open videography moving image">
+          <div class="visual-label">videography / moving image</div>
+        </a>
+
+        <div class="text">
+          <a class="card-link" href="videography.html">
+            <h1>videography / moving image</h1>
+          </a>
+
+          <div class="description">
+            moving image systems / edited sequences / atmospheric documentation / symbolic motion / sound-image relationships / temporal environments
+          </div>
+
+          <div class="tags">
+            <span class="tag">moving image</span>
+            <span class="tag">editing</span>
+            <span class="tag">atmosphere</span>
+            <span class="tag">sequence</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
     <footer>
-      <span>juliekendra.com/art-practice</span>
-      <span>archive interface / three containers</span>
+      <span>jkendra.dev/art</span>
+      <span>art practice</span>
     </footer>
   </main>
 </body>
