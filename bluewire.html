@@ -1,327 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bluewire — Julie Kendra</title>
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bluewire — julie kendra</title>
+
 <style>
-  * { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-  :root {
-    --bg: #f6f1ea;
-    --ink: #161413;
-    --muted: #6f6a64;
-    --line: #d8cec2;
-    --soft: #ebe2d7;
-    --accent: #8fa6a4;
-    --accent-dark: #536f70;
-    --card: rgba(255, 252, 247, 0.78);
-    --white: #fffdf8;
-    --shadow: 0 18px 55px rgba(40, 32, 24, .06);
-  }
+:root{
+--bg:#f4efe7;
+--paper:#fbf8f2;
+--ink:#161412;
+--muted:#746e67;
+--faint:#a8a096;
+--line:#d7cec3;
+--line-dark:#bdb2a7;
+--accent:#536f70;
+--tag-bg:rgba(255,253,248,.42);
+}
 
-  html { scroll-behavior: smooth; }
+html{scroll-behavior:smooth}
 
-  body {
-    margin: 0;
-    background:
-      radial-gradient(circle at 8% 0%, rgba(143,166,164,.42) 0, rgba(143,166,164,.16) 24%, transparent 44%),
-      radial-gradient(circle at 92% 70%, rgba(220,204,187,.74) 0, transparent 38%),
-      var(--bg);
-    color: var(--ink);
-    font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-  }
+body{
+margin:0;
+min-height:100vh;
+background:
+radial-gradient(circle at 10% 0%,rgba(210,203,194,.55) 0,transparent 34%),
+radial-gradient(circle at 90% 86%,rgba(222,214,202,.72) 0,transparent 38%),
+var(--bg);
+color:var(--ink);
+font-family:"Inter","Avenir Next","Helvetica Neue",Arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+text-rendering:geometricPrecision;
+}
 
-  a { color: inherit; text-decoration: none; }
+a{color:inherit;text-decoration:none}
 
-  .page {
-    width: min(1160px, calc(100% - 40px));
-    margin: 0 auto;
-    padding: 42px 0 72px;
-  }
+main{
+width:min(1180px,calc(100% - 48px));
+margin:0 auto;
+padding:74px 0;
+}
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    padding-bottom: 54px;
-  }
+.archive-header{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+gap:24px;
+margin-bottom:54px;
+border-bottom:1px solid var(--line);
+padding-bottom:22px;
+}
 
-  .brand {
-    letter-spacing: 8px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 800;
-  }
+.site-label{
+font-size:11px;
+letter-spacing:.42em;
+text-transform:uppercase;
+color:var(--ink);
+font-weight:700;
+}
 
-  nav {
-    display: flex;
-    gap: 24px;
-    color: var(--muted);
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+.nav{
+display:flex;
+gap:24px;
+align-items:center;
+}
 
-  nav a.active {
-    color: var(--ink);
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 5px;
-  }
+.nav a{
+font-size:11px;
+letter-spacing:.26em;
+text-transform:uppercase;
+color:var(--faint);
+}
 
-  .project-hero {
-    display: grid;
-    grid-template-columns: .95fr 1.05fr;
-    gap: 42px;
-    align-items: center;
-    margin-bottom: 70px;
-  }
+.nav a.active{
+color:var(--ink);
+border-bottom:1px solid var(--ink);
+padding-bottom:5px;
+}
 
-  .project-visual {
-    background:
-      linear-gradient(135deg, rgba(143,166,164,.35), rgba(255,253,248,.72)),
-      var(--soft);
-    border: 1px solid rgba(216,206,194,.95);
-    box-shadow: var(--shadow);
-    min-height: 520px;
-    display: grid;
-    place-items: center;
-    padding: 34px;
-  }
+.hero{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:34px;
+margin-bottom:56px;
+}
 
-  .project-visual img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-    display: block;
-  }
+.hero-title{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:44px;
+min-height:360px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
 
-  .eyebrow {
-    color: var(--accent-dark);
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 900;
-    margin-bottom: 20px;
-  }
+.eyebrow{
+font-size:11px;
+letter-spacing:.34em;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:28px;
+}
 
-  h1 {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 400;
-    font-size: clamp(56px, 8vw, 108px);
-    line-height: .92;
-    letter-spacing: -4px;
-  }
+h1{
+margin:0;
+font-family:Georgia,"Times New Roman",serif;
+font-size:clamp(58px,8vw,108px);
+line-height:.92;
+letter-spacing:-.06em;
+font-weight:400;
+}
 
-  .subline {
-    margin-top: 28px;
-    max-width: 740px;
-    color: var(--muted);
-    font-size: 19px;
-    line-height: 1.65;
-  }
+.hero-note{
+border:1px solid var(--line-dark);
+background:
+linear-gradient(90deg,rgba(83,111,112,.09) 1px,transparent 1px),
+linear-gradient(180deg,rgba(83,111,112,.07) 1px,transparent 1px),
+rgba(251,248,242,.72);
+background-size:38px 38px;
+padding:44px;
+min-height:360px;
+display:flex;
+align-items:center;
+}
 
-  .actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 34px;
-  }
+.hero-note p{
+margin:0;
+color:var(--muted);
+font-size:19px;
+line-height:1.75;
+}
 
-  .button {
-    border: 1px solid var(--accent-dark);
-    color: var(--accent-dark);
-    padding: 13px 18px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: rgba(255,255,255,.35);
-    transition: .22s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:28px;
+}
 
-  .button.primary {
-    background: var(--accent-dark);
-    color: white;
-  }
+.button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+height:46px;
+padding:0 18px;
+border:1px solid #6c8585;
+background:transparent;
+color:#5d7676;
+font-size:10px;
+letter-spacing:.24em;
+text-transform:uppercase;
+font-weight:500;
+transition:.2s ease;
+}
 
-  .button:hover {
-    background: var(--accent-dark);
-    color: white;
-    transform: translateY(-2px);
-  }
+.button:hover{
+background:#5d7676;
+color:#f4efe7;
+border-color:#5d7676;
+}
 
-  .section { margin-bottom: 64px; }
+.button.primary{
+background:#5d7676;
+color:#f4efe7;
+border-color:#5d7676;
+}
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 22px;
-  }
+.button.primary:hover{
+opacity:.9;
+}
 
-  h2 {
-    margin: 0;
-    font-size: 14px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--accent-dark);
-    white-space: nowrap;
-  }
+.button:hover{
+background:var(--ink);
+color:var(--paper);
+border-color:var(--ink);
+}
 
-  .rule {
-    height: 1px;
-    background: var(--line);
-    flex: 1;
-  }
+.section{margin-bottom:56px}
 
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap: 22px;
-  }
+.section-header{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:20px;
+}
 
-  .panel {
-    background: var(--card);
-    border: 1px solid rgba(216,206,194,.9);
-    backdrop-filter: blur(16px);
-    padding: 28px 32px;
-  }
+.section-title{
+margin:0;
+color:var(--accent);
+letter-spacing:.34em;
+text-transform:uppercase;
+font-size:11px;
+font-weight:800;
+white-space:nowrap;
+}
 
-  .panel h3 {
-    margin: 0 0 12px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 30px;
-    font-weight: 400;
-  }
+.rule{
+height:1px;
+background:var(--line);
+flex:1;
+}
 
-  .panel p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 15.5px;
-    line-height: 1.75;
-  }
+.panel{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:34px;
+}
 
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 18px;
-  }
+.statement{
+font-family:Georgia,"Times New Roman",serif;
+font-size:31px;
+line-height:1.35;
+letter-spacing:-.04em;
+}
 
-  .chip {
-    border: 1px solid rgba(83,111,112,.24);
-    background: rgba(255,255,255,.45);
-    padding: 8px 10px;
-    font-size: 13px;
-    color: var(--ink);
-  }
+.panel p{
+margin:18px 0 0;
+color:var(--muted);
+font-size:15.5px;
+line-height:1.75;
+}
 
-  footer {
-    margin-top: 80px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    color: var(--muted);
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-top:28px;
+}
 
-  @media (max-width: 950px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-bottom: 42px;
-    }
+.tag{
+border:1px solid var(--line-dark);
+background:var(--tag-bg);
+color:#5e5852;
+font-size:10px;
+letter-spacing:.18em;
+text-transform:uppercase;
+padding:8px 10px;
+line-height:1;
+}
 
-    nav { flex-wrap: wrap; }
+.two-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
 
-    .project-hero,
-    .info-grid {
-      grid-template-columns: 1fr;
-    }
+.product-shot{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:34px;
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:34px;
+align-items:center;
+}
 
-    .project-visual {
-      min-height: 340px;
-    }
+.product-shot img{
+width:100%;
+display:block;
+object-fit:contain;
+}
 
-    footer {
-      flex-direction: column;
-    }
-  }
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.feature{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:24px;
+min-height:180px;
+}
+
+.icon{
+font-size:22px;
+color:var(--accent);
+margin-bottom:18px;
+}
+
+.feature h3{
+margin:0 0 12px;
+font-family:Georgia,"Times New Roman",serif;
+font-size:27px;
+font-weight:400;
+}
+
+.feature p{
+margin:0;
+color:var(--muted);
+font-size:13.5px;
+line-height:1.55;
+}
+
+.spec-table{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+}
+
+.spec-row{
+display:grid;
+grid-template-columns:28% 1fr;
+border-bottom:1px solid var(--line);
+}
+
+.spec-row:last-child{border-bottom:0}
+
+.spec-label{
+padding:24px;
+border-right:1px solid var(--line);
+color:var(--accent);
+font-size:10px;
+letter-spacing:.25em;
+text-transform:uppercase;
+}
+
+.spec-content{
+padding:24px 28px;
+color:var(--muted);
+font-size:15px;
+line-height:1.7;
+}
+
+footer{
+margin-top:44px;
+border-top:1px solid var(--line);
+padding-top:20px;
+display:flex;
+justify-content:space-between;
+gap:20px;
+color:var(--faint);
+font-size:11px;
+letter-spacing:.26em;
+text-transform:uppercase;
+}
+
+@media(max-width:900px){
+.hero,
+.two-grid,
+.product-shot,
+.feature-grid,
+.spec-row{
+grid-template-columns:1fr;
+}
+
+.archive-header,
+footer{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.spec-label{
+border-right:0;
+border-bottom:1px solid var(--line);
+}
+}
 </style>
-
 </head>
 
 <body>
-  <main class="page">
-    <header>
-      <a class="brand" href="index.html">Julie Kendra</a>
+<main>
 
-      <nav>
-        <a class="active" href="work.html">Work</a>
-        <a href="art.html">Art Practice</a>
-        <a href="research.html">Research</a>
-      </nav>
-    </header>
+<header class="archive-header">
+<a class="site-label" href="index.html">julie kendra</a>
 
-    <section class="project-hero">
-      <div class="project-visual">
-        <img src="bluewire.png" alt="Bluewire product preview">
-      </div>
+<nav class="nav">
+<a href="index.html">index</a>
+<a class="active" href="work.html">work</a>
+<a href="art.html">art practice</a>
+<a href="research.html">research</a>
+<a href="cv.html">cv</a>
+</nav>
+</header>
 
-      <div>
-        <div class="eyebrow">Technical Product System</div>
-        <h1>Bluewire</h1>
-        <p class="subline">
-          A clean product concept for audit workflows, environmental checks and guided technical recommendations.
-        </p>
+<section class="hero">
+<div class="hero-title">
+<div>
+<div class="eyebrow">technical product system / audit ux / reporting</div>
+<h1>bluewire</h1>
+</div>
 
-        <div class="actions">
-          <a class="button primary" href="#" aria-disabled="true">MVP Coming Soon</a>
-          <a class="button" href="work.html#product-design">Back To Work</a>
-        </div>
-      </div>
-    </section>
+<div class="actions">
+<a class="button" href="work.html#product-design">
+  back to work
+</a>
+<a class="button primary" href="YOUR_LINK" target="_blank">
+  go to mvp
+</a>
+</div>
+</div>
 
-    <section class="section">
-      <div class="section-header">
-        <h2>Overview</h2>
-        <div class="rule"></div>
-      </div>
+<div class="hero-note">
+<p>
+bluewire audits is a mobile-first emf audit logger for walkthrough assessments, room-by-room readings and exportable field notes. the product turns messy in-person measurements into a structured record that can be reviewed, shared and acted on.
+</p>
+</div>
+</section>
 
-      <div class="info-grid">
-        <div class="panel">
-          <h3>Product Direction</h3>
-          <p>Bluewire frames technical evaluation as a structured user journey. The system is designed to help users understand what needs attention, what can be ignored and what actions should happen first.</p>
-        </div>
+<section class="section" id="product">
+<div class="section-header">
+<h2 class="section-title">product</h2>
+<div class="rule"></div>
+</div>
 
-        <div class="panel">
-          <h3>System Logic</h3>
-          <p>The product direction combines service intake, audit logic, prioritized planning and a clear presentation layer for complex technical findings.</p>
+<div class="product-shot">
 
-          <div class="chips">
-            <span class="chip">Audit UX</span>
-<span class="chip">Service Flow</span>
-<span class="chip">Technical Systems</span>
-<span class="chip">Planning</span>
-<span class="chip">Client Dashboard</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<img src="bluewire.png" alt="Bluewire product preview">
 
-    <footer>
-      <div>jkendra.dev</div>
-      <div>creative development • product design • research communication</div>
-    </footer>
-  </main>
+<div class="panel">
+<div class="statement">field notes without spreadsheet chaos</div>
+
+<p>
+the app is designed around three core states: a home dashboard for recent audits, a detail view for room-level readings and an add-reading flow for fast onsite entry. it tracks client, location, date, reading count, device, distance, value, unit and notes.
+</p>
+
+<div class="tags">
+<span class="tag">emf audit logger</span>
+<span class="tag">mobile first</span>
+<span class="tag">field data</span>
+<span class="tag">csv export</span>
+<span class="tag">client records</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">overview</h2>
+<div class="rule"></div>
+</div>
+
+<div class="two-grid">
+<div class="panel">
+<div class="statement">problem</div>
+<p>
+emf walkthroughs create a lot of small measurements very quickly. without a dedicated structure, readings can get scattered across notes, photos, spreadsheets and memory. bluewire organizes that field work into a repeatable audit flow.
+</p>
+</div>
+
+<div class="panel">
+<div class="statement">solution</div>
+<p>
+a compact mobile dashboard for creating audits, logging room-by-room readings and exporting structured records. the system prioritizes speed during data entry and clarity when reviewing the audit later.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">features</h2>
+<div class="rule"></div>
+</div>
+
+<div class="feature-grid">
+<div class="feature">
+<div class="icon">◎</div>
+<h3>audit dashboard</h3>
+<p>recent audit cards show client, location, date and reading totals at a glance.</p>
+</div>
+
+<div class="feature">
+<div class="icon">+</div>
+<h3>new audit flow</h3>
+<p>a clear entry point for starting a new emf walkthrough and building the record as you move.</p>
+</div>
+
+<div class="feature">
+<div class="icon">⌬</div>
+<h3>reading table</h3>
+<p>device, distance, value and unit fields keep measurements consistent across rooms.</p>
+</div>
+
+<div class="feature">
+<div class="icon">↗</div>
+<h3>export logic</h3>
+<p>csv export gives the field data a simple path into reports, client files or analysis.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2 class="section-title">system details</h2>
+<div class="rule"></div>
+</div>
+
+<div class="spec-table">
+<div class="spec-row">
+<div class="spec-label">screens</div>
+<div class="spec-content">home dashboard, audit detail view, add-reading form, exports and settings navigation.</div>
+</div>
+
+<div class="spec-row">
+<div class="spec-label">sample audits</div>
+<div class="spec-content">julie's house / scarsdale ny, bruno's office / williamsburg brooklyn, julie's art studio / bushwick brooklyn.</div>
+</div>
+
+<div class="spec-row">
+<div class="spec-label">readings</div>
+<div class="spec-content">wifi router, smart tv, soundbar and game console with distance, measured value and unit fields.</div>
+</div>
+
+<div class="spec-row">
+<div class="spec-label">units</div>
+<div class="spec-content">mG, V/m and µW/m², giving the logger room for magnetic field, electric field and rf measurements.</div>
+</div>
+
+<div class="spec-row">
+<div class="spec-label">design direction</div>
+<div class="spec-content">dark technical interface, blue signal glow, mono-style labels, compact cards and field-friendly tap targets.</div>
+</div>
+</div>
+</section>
+
+<footer>
+<span>jkendra.dev/work/bluewire</span>
+<span>technical product system / audit ux / reporting</span>
+</footer>
+
+</main>
 </body>
 </html>
