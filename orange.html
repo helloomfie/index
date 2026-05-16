@@ -282,6 +282,15 @@
     color: var(--ink);
   }
 
+  .chip.good {
+    background: rgba(127,155,105,.13);
+    border-color: rgba(127,155,105,.32);
+  }
+
+  .chip.soft {
+    background: rgba(217,101,24,.08);
+  }
+
   .detail-list {
     display: grid;
     gap: 12px;
@@ -301,6 +310,7 @@
   .detail strong {
     color: var(--ink);
     font-weight: 600;
+    text-align: right;
   }
 
   .feature-list {
@@ -323,6 +333,28 @@
   }
 
   .feature-item span {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  .note-card {
+    margin-top: 18px;
+    padding: 18px;
+    background: rgba(255,253,248,.55);
+    border: 1px solid rgba(216,206,194,.75);
+  }
+
+  .note-card strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ink);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .note-card span {
     color: var(--muted);
     font-size: 14.5px;
     line-height: 1.65;
@@ -382,18 +414,18 @@
 
     <section class="project-hero">
       <div class="project-visual">
-        <img src="product_1.png" alt="Orange product preview">
+        <img src="orange.png" alt="Orange product preview">
       </div>
 
       <div>
         <div class="eyebrow">Product Concept</div>
         <h1>Orange</h1>
         <p class="subline">
-          A mobile-first household research and product tracking system focused on sourcing transparency, lightweight verification and calm everyday usability.
+          A community-built product library where users contribute everyday items, photos, visible codes and simple observations, then research review turns the best entries into trusted public resources.
         </p>
 
         <div class="actions">
-          <a class="button primary" href="#" aria-disabled="true">MVP Coming Soon</a>
+          <a class="button primary" href="#" aria-disabled="true">Live Concept</a>
           <a class="button" href="work.html#product-design">Back To Work</a>
         </div>
       </div>
@@ -409,31 +441,33 @@
         <div class="panel">
           <h3>Product Direction</h3>
           <p>
-            Orange is a research-first household inventory and product tracking system designed around transparency, sourcing and everyday decision making.
+            Orange is a public product library built from user contributions. Instead of trying to launch with a complete database, the system begins with the products people actually upload, save, photograph and return to over time.
           </p>
           <p>
-            The concept combines soft editorial design with structured product metadata, allowing users to track groceries, pantry items, supplements, personal care products and household essentials inside a calm, approachable interface.
+            Users can add everyday items, attach images, note where they found them, capture visible identifiers like PLU codes, barcodes or batch numbers, and describe what they can actually observe.
           </p>
           <p>
-            Instead of overwhelming dashboards or aggressive health scoring, Orange focuses on lightweight verification, product history and clean information architecture that feels easy to navigate daily.
+            As entries gain signal, the research layer can clean duplicates, add sourcing context, standardize metadata and apply a verified label to stronger public entries.
           </p>
         </div>
 
         <div class="panel">
           <h3>Core Experience</h3>
           <p>
-            Users can save products, organize categories, monitor recent activity, review sourcing details and explore verification insights through a mobile-first interface designed to feel warm, minimal and highly readable.
+            The experience is designed to feel like contributing to a shared archive, not posting to a social feed. Every product entry can become more useful over time as users add simple observations and the research team adds structure.
           </p>
 
           <div class="chips">
-            <span class="chip">Product Tracking</span>
-            <span class="chip">Research Verification</span>
-            <span class="chip">Sourcing Transparency</span>
-            <span class="chip">Household Inventory</span>
-            <span class="chip">Metadata Systems</span>
-            <span class="chip">Mobile UX</span>
-            <span class="chip">Editorial Interface</span>
-            <span class="chip">Consumer Research</span>
+            <span class="chip">Public Library</span>
+            <span class="chip">User Contributions</span>
+            <span class="chip">Research Review</span>
+            <span class="chip">Verified Entries</span>
+            <span class="chip">Product Metadata</span>
+            <span class="chip">Sourcing Notes</span>
+            <span class="chip">Photo Archive</span>
+            <span class="chip">Barcode Evidence</span>
+            <span class="chip">Batch Codes</span>
+            <span class="chip">Community Signal</span>
           </div>
         </div>
       </div>
@@ -441,24 +475,24 @@
 
     <section class="section">
       <div class="section-header">
-        <h2>Dashboard Logic</h2>
+        <h2>Library Logic</h2>
         <div class="rule"></div>
       </div>
 
       <div class="stat-row">
         <div class="stat">
           <strong>23</strong>
-          <span>saved products</span>
+          <span>saved entries</span>
         </div>
 
         <div class="stat">
           <strong>12</strong>
-          <span>tracked today</span>
+          <span>new contributions</span>
         </div>
 
         <div class="stat">
           <strong>3</strong>
-          <span>new discoveries</span>
+          <span>entries under review</span>
         </div>
 
         <div class="stat">
@@ -477,26 +511,219 @@
       <div class="three-grid">
         <div class="panel">
           <div class="mini-label">01</div>
-          <h4>Track Products</h4>
+          <h4>Add Entries</h4>
           <p>
-            Add products manually, through search or through scanning, then sort them across food, pantry, personal care and home categories.
+            Users create product entries by adding a name, category, photo, visible identifier, store, basic product details and any notes they want to remember.
           </p>
         </div>
 
         <div class="panel">
           <div class="mini-label">02</div>
-          <h4>Verify Details</h4>
+          <h4>Describe What Is Visible</h4>
           <p>
-            Surface lightweight verification signals, research notes and product history without making the interface feel heavy or clinical.
+            For produce, users can quickly mark simple signals like fresh, sweet, juicy, bruised, ripe, lasted long or bought again.
           </p>
         </div>
 
         <div class="panel">
           <div class="mini-label">03</div>
-          <h4>Understand Sourcing</h4>
+          <h4>Verify the Best</h4>
           <p>
-            Give users a clear view of origin, farm, season, organic status, quality notes and transparency reports from a single product page.
+            The research team can review high-signal entries, clean metadata, merge duplicates and add a verified label when the entry is stronger.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Evidence by Category</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="three-grid">
+        <div class="panel">
+          <div class="mini-label">Produce</div>
+          <h4>PLU + Sticker</h4>
+          <p>
+            Produce entries can use PLU codes, sticker photos, store details and simple freshness or taste observations.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="mini-label">Skincare</div>
+          <h4>Barcode + Batch</h4>
+          <p>
+            Skincare entries can use barcodes, batch or lot numbers, packaging photos, ingredient panels and expiration details when visible.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="mini-label">Packaged Goods</div>
+          <h4>Label + Barcode</h4>
+          <p>
+            Packaged food, supplements and household items can use barcodes, ingredient labels, nutrition panels, lot codes and package photos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Produce Example</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="panel">
+          <h3>User-Added Signals</h3>
+          <p>
+            The user layer stays intentionally simple. People only add what they can see, taste, remember or easily check from the label or store.
+          </p>
+
+          <div class="chips">
+            <span class="chip good">Looked Fresh</span>
+            <span class="chip good">Tasted Good</span>
+            <span class="chip good">Sweet</span>
+            <span class="chip good">Juicy</span>
+            <span class="chip">Ripe</span>
+            <span class="chip">Lasted Long</span>
+            <span class="chip">Bought Again</span>
+            <span class="chip">Price</span>
+            <span class="chip">Store</span>
+            <span class="chip">Photo</span>
+            <span class="chip">PLU Code</span>
+            <span class="chip">Organic Toggle</span>
+            <span class="chip">Country of Origin</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Research-Added Context</h3>
+          <p>
+            The research layer adds the deeper trust information later, without forcing normal users to fill out expert-level metadata.
+          </p>
+
+          <div class="chips">
+            <span class="chip soft">Verified Origin</span>
+            <span class="chip soft">Distributor Notes</span>
+            <span class="chip soft">Regenerative Practices</span>
+            <span class="chip soft">Seasonality</span>
+            <span class="chip soft">Storage Notes</span>
+            <span class="chip soft">Sourcing Consistency</span>
+            <span class="chip soft">Common Complaints</span>
+            <span class="chip soft">Harvest Region</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Produce Identity</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="panel">
+          <h3>Produce Identifier</h3>
+          <p>
+            For produce, the PLU code becomes the anchor for the listing. Instead of creating vague duplicate entries like orange, organic orange or navel orange, Orange can connect the listing to the number already used on the produce sticker.
+          </p>
+          <p>
+            The image matters because it captures the real-world sticker, label or tag attached to that specific product. Users can upload the photo and enter the PLU so the entry is tied to an actual produce identifier.
+          </p>
+
+          <div class="chips">
+            <span class="chip good">PLU 4012</span>
+            <span class="chip">Sticker Photo</span>
+            <span class="chip">Produce Label</span>
+            <span class="chip">Specific Listing</span>
+            <span class="chip">Duplicate Control</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Why It Matters</h3>
+          <p>
+            PLU-first entries keep the library cleaner. The same fruit can still collect many user observations, stores, photos and notes, but the core listing stays attached to a recognizable produce code.
+          </p>
+
+          <div class="detail-list">
+            <div class="detail">
+              <span>Primary anchor</span>
+              <strong>PLU code</strong>
+            </div>
+
+            <div class="detail">
+              <span>Visual proof</span>
+              <strong>Sticker / label photo</strong>
+            </div>
+
+            <div class="detail">
+              <span>User adds</span>
+              <strong>Store + observations</strong>
+            </div>
+
+            <div class="detail">
+              <span>Research adds</span>
+              <strong>Origin + distributor context</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Identifier System</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="panel">
+          <h3>One System, Different Evidence</h3>
+          <p>
+            Orange does not force one identifier across every product type. Each category can use the evidence that already exists on the item: PLU for produce, barcodes for packaged goods, batch numbers for skincare or supplements, and label photos when codes are not enough.
+          </p>
+
+          <div class="chips">
+            <span class="chip good">PLU Code</span>
+            <span class="chip good">Barcode</span>
+            <span class="chip good">Batch / Lot Number</span>
+            <span class="chip">Sticker Photo</span>
+            <span class="chip">Ingredient Panel</span>
+            <span class="chip">Package Label</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Research Role</h3>
+          <p>
+            Users provide visible evidence. The research layer can later use that evidence to clean duplicates, track packaging changes, connect repeated label patterns and add verified context when there is enough support.
+          </p>
+
+          <div class="detail-list">
+            <div class="detail">
+              <span>Produce</span>
+              <strong>PLU + sticker</strong>
+            </div>
+
+            <div class="detail">
+              <span>Skincare</span>
+              <strong>Barcode + batch</strong>
+            </div>
+
+            <div class="detail">
+              <span>Supplements</span>
+              <strong>Lot + expiration</strong>
+            </div>
+
+            <div class="detail">
+              <span>Packaged food</span>
+              <strong>Barcode + label</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -511,7 +738,7 @@
         <div class="panel">
           <h3>Navel Oranges</h3>
           <p>
-            A sample verified product page showing how Orange could organize everyday product data into a simple, readable profile.
+            A sample public produce entry showing how Orange can organize user-added observations into a clean, readable profile.
           </p>
 
           <div class="detail-list">
@@ -521,8 +748,13 @@
             </div>
 
             <div class="detail">
+              <span>PLU</span>
+              <strong>4012</strong>
+            </div>
+
+            <div class="detail">
               <span>Status</span>
-              <strong>Verified</strong>
+              <strong>Research Verified</strong>
             </div>
 
             <div class="detail">
@@ -532,22 +764,87 @@
 
             <div class="detail">
               <span>Source</span>
-              <strong>Orange Research Team</strong>
+              <strong>Community Entry</strong>
             </div>
+          </div>
+
+          <div class="note-card">
+            <strong>User note</strong>
+            <span>Sweet, juicy and lasted about a week. Would buy again.</span>
           </div>
         </div>
 
         <div class="panel">
-          <h3>Sourcing</h3>
+          <h3>Visible Produce Signals</h3>
 
           <div class="detail-list">
             <div class="detail">
-              <span>Grown in</span>
+              <span>PLU</span>
+              <strong>4012</strong>
+            </div>
+
+            <div class="detail">
+              <span>Sticker / label</span>
+              <strong>Photo included</strong>
+            </div>
+
+            <div class="detail">
+              <span>Store</span>
+              <strong>Whole Foods</strong>
+            </div>
+
+            <div class="detail">
+              <span>Organic</span>
+              <strong>User reported yes</strong>
+            </div>
+
+            <div class="detail">
+              <span>Country of origin</span>
+              <strong>USA</strong>
+            </div>
+
+            <div class="detail">
+              <span>Freshness</span>
+              <strong>Looked fresh</strong>
+            </div>
+
+            <div class="detail">
+              <span>Taste</span>
+              <strong>Sweet • Juicy</strong>
+            </div>
+
+            <div class="detail">
+              <span>Repeat purchase</span>
+              <strong>Bought again</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Research Review</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="panel">
+          <h3>What Research Adds</h3>
+
+          <div class="detail-list">
+            <div class="detail">
+              <span>PLU match</span>
+              <strong>Research confirmed</strong>
+            </div>
+
+            <div class="detail">
+              <span>Reported origin</span>
               <strong>California, USA</strong>
             </div>
 
             <div class="detail">
-              <span>Farm</span>
+              <span>Distributor / farm</span>
               <strong>Sunridge Orchards</strong>
             </div>
 
@@ -557,8 +854,28 @@
             </div>
 
             <div class="detail">
-              <span>Organic</span>
-              <strong>Yes</strong>
+              <span>Regenerative</span>
+              <strong>Research added</strong>
+            </div>
+
+            <div class="detail">
+              <span>Storage note</span>
+              <strong>Best kept cool and dry</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Trust Model</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>Community Added</strong>
+              <span>Any user can contribute a produce entry with photos, store details, basic quality signals and personal notes.</span>
+            </div>
+
+            <div class="feature-item">
+              <strong>Research Verified</strong>
+              <span>Stronger entries can be reviewed, cleaned and expanded with origin, sourcing, distributor and farming-practice context.</span>
             </div>
           </div>
         </div>
@@ -573,24 +890,19 @@
 
       <div class="info-grid">
         <div class="panel">
-          <h3>Research Layer</h3>
-          <div class="feature-list">
-            <div class="feature-item">
-              <strong>Good Choice</strong>
-              <span>Products can include short quality insights, such as growing conditions, consistency, sourcing quality and residue notes.</span>
-            </div>
-
-            <div class="feature-item">
-              <strong>Full Report</strong>
-              <span>Verification details can live behind a deeper report page for users who want sourcing, testing and research context.</span>
-            </div>
-          </div>
+          <h3>Simple by Design</h3>
+          <p>
+            Orange avoids asking users to become experts. The user contributes quick observations and visible evidence, like stickers, labels, barcodes or batch numbers. The research layer handles the deeper context later.
+          </p>
+          <p>
+            This keeps the app easy enough to use while still giving the public library a path toward trust, structure and verification.
+          </p>
         </div>
 
         <div class="panel">
           <h3>Interface System</h3>
           <p>
-            The visual system blends soft gradients, muted neutrals, editorial typography and mobile-native spacing to create an experience that feels calm, trustworthy and easy to revisit daily.
+            The visual system blends soft gradients, muted neutrals, editorial typography and mobile-native spacing to make the public library feel calm, trustworthy and easy to revisit.
           </p>
 
           <div class="chips">
@@ -600,6 +912,8 @@
             <span class="chip">Serif Headers</span>
             <span class="chip">Minimal Navigation</span>
             <span class="chip">Readable Metadata</span>
+            <span class="chip">Category Evidence</span>
+            <span class="chip">Identifier System</span>
           </div>
         </div>
       </div>
@@ -610,5 +924,7 @@
       <div>creative development • product design • research communication</div>
     </footer>
   </main>
+</body>
+</html>
 </body>
 </html>
