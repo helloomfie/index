@@ -1,723 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work — Julie Kendra</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>work — julie kendra</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box}
 
-    :root {
-      --bg: #f6f1ea;
-      --ink: #161413;
-      --muted: #6f6a64;
-      --line: #d8cec2;
-      --soft: #ebe2d7;
-      --accent: #8fa6a4;
-      --accent-dark: #536f70;
-      --card: rgba(255, 252, 247, 0.78);
-      --white: #fffdf8;
-      --shadow: 0 18px 55px rgba(40, 32, 24, .06);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 8% 0%, rgba(143,166,164,.42) 0, rgba(143,166,164,.16) 24%, transparent 44%),
-        radial-gradient(circle at 92% 70%, rgba(220,204,187,.74) 0, transparent 38%),
-        var(--bg);
-      color: var(--ink);
-      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 42px 0 72px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding-bottom: 72px;
-    }
-
-    .brand {
-      letter-spacing: 8px;
-      font-size: 14px;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    nav a.active {
-      color: var(--ink);
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 5px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 245px 1fr;
-      gap: 56px;
-      align-items: center;
-      margin-bottom: 82px;
-    }
-
-    .portrait-wrap {
-      width: 230px;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      padding: 8px;
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 24px 70px rgba(40,32,24,.13);
-      position: relative;
-    }
-
-    .portrait-wrap:before {
-      content: "";
-      position: absolute;
-      inset: -18px;
-      border: 1px solid rgba(83,111,112,.32);
-      border-radius: 50%;
-      z-index: -1;
-    }
-
-    .portrait {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      filter: grayscale(100%);
-      display: block;
-    }
-
-    .eyebrow {
-      color: var(--accent-dark);
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      font-size: clamp(58px, 8vw, 108px);
-      line-height: .92;
-      letter-spacing: -4px;
-    }
-
-    .subline {
-      margin-top: 28px;
-      max-width: 790px;
-      color: var(--muted);
-      font-size: 20px;
-      line-height: 1.65;
-    }
-
-    .actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 34px;
-    }
-
-    .button {
-      border: 1px solid var(--accent-dark);
-      color: var(--accent-dark);
-      padding: 13px 18px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      background: rgba(255,255,255,.35);
-      transition: .22s ease;
-    }
-
-    .button:hover {
-      background: var(--accent-dark);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .section {
-      margin-bottom: 76px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 14px;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--accent-dark);
-      white-space: nowrap;
-    }
-
-    .rule {
-      height: 1px;
-      background: var(--line);
-      flex: 1;
-    }
-
- .intro-panel {
-  background: var(--card);
-  border: 1px solid rgba(216,206,194,.9);
-  backdrop-filter: blur(16px);
-  padding: 28px 34px;
-  margin-bottom: 48px;
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 34px;
-  align-items: start;
+:root{
+--bg:#f4efe7;
+--paper:#fbf8f2;
+--ink:#161412;
+--muted:#746e67;
+--faint:#a8a096;
+--line:#d7cec3;
+--line-dark:#bdb2a7;
+--accent:#536f70;
+--tag-bg:rgba(255,253,248,.42);
 }
 
- .intro-panel p {
-  margin-top: 0;
-  margin-bottom: 0;
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+min-height:100vh;
+background:
+radial-gradient(circle at 10% 0%,rgba(210,203,194,.55) 0,transparent 34%),
+radial-gradient(circle at 90% 86%,rgba(222,214,202,.72) 0,transparent 38%),
+var(--bg);
+color:var(--ink);
+font-family:"Inter","Avenir Next","Helvetica Neue",Arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+text-rendering:geometricPrecision;
 }
 
-    .intro-lead {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 28px;
-      line-height: 1.35;
-      color: var(--ink);
-    }
+a{color:inherit;text-decoration:none}
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .chip {
-      border: 1px solid rgba(83,111,112,.24);
-      background: rgba(255,255,255,.45);
-      padding: 8px 10px;
-      font-size: 13px;
-      color: var(--ink);
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .feature-card {
-      background: var(--white);
-      border: 1px solid rgba(216,206,194,.95);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-    }
-
-.feature-image {
-  width: 100%;
-  display: block;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-bottom: 1px solid var(--line);
-  transition: .2s ease;
+main{
+width:min(1180px,calc(100% - 48px));
+margin:0 auto;
+padding:74px 0;
 }
 
-.feature-image:hover {
-  opacity: .94;
+.archive-header{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+gap:24px;
+margin-bottom:54px;
+border-bottom:1px solid var(--line);
+padding-bottom:22px;
 }
 
-    .feature-link {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      background:
-        linear-gradient(135deg, rgba(83,111,112,.92), rgba(22,20,19,.95)),
-        #242424;
-      color: white;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 28px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      transition: .22s ease;
-    }
+.site-label{
+font-size:11px;
+letter-spacing:.42em;
+text-transform:uppercase;
+color:var(--ink);
+font-weight:700;
+transition:opacity .2s ease;
+}
 
-    .feature-link:hover {
-      filter: brightness(.92);
-    }
+.site-label:hover{opacity:.55}
 
-    .feature-body {
-      padding: 22px 24px 24px;
-      border-top: 1px solid var(--line);
-    }
+.nav{
+display:flex;
+gap:24px;
+align-items:center;
+}
 
-    .label {
-      color: var(--accent-dark);
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
+.nav a{
+font-size:11px;
+letter-spacing:.26em;
+text-transform:uppercase;
+color:var(--faint);
+transition:opacity .2s ease;
+}
 
-    .feature-body p,
-    .project-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.65;
-    }
+.nav a:hover{opacity:.55}
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.nav a.active{
+color:var(--ink);
+border-bottom:1px solid var(--ink);
+padding-bottom:5px;
+}
 
-    .project-card {
-      background: var(--white);
-      border: 1px solid rgba(216,206,194,.95);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
+.hero{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:34px;
+margin-bottom:56px;
+}
 
-    .project-card img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-    }
+.hero-title{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:44px;
+min-height:360px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
 
-    .project-body {
-      padding: 20px 21px 22px;
-    }
+.eyebrow{
+font-size:11px;
+letter-spacing:.34em;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:28px;
+}
 
-    .product-card {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 0;
-      background: var(--white);
-      border: 1px solid rgba(216,206,194,.95);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      margin-bottom: 22px;
-    }
+h1{
+margin:0;
+font-family:Georgia,"Times New Roman",serif;
+font-size:clamp(58px,8vw,108px);
+line-height:.92;
+letter-spacing:-.06em;
+font-weight:400;
+}
 
-    .product-visual {
-      min-height: 280px;
-      background:
-        linear-gradient(135deg, rgba(143,166,164,.35), rgba(255,253,248,.72)),
-        var(--soft);
-      border-right: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      padding: 30px;
-    }
+.hero-note{
+border:1px solid var(--line-dark);
+background:
+linear-gradient(90deg,rgba(83,111,112,.09) 1px,transparent 1px),
+linear-gradient(180deg,rgba(83,111,112,.07) 1px,transparent 1px),
+rgba(251,248,242,.72);
+background-size:38px 38px;
+padding:44px;
+min-height:360px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
 
-    .product-visual img {
-      width: 100%;
-      max-height: 320px;
-      object-fit: contain;
-      display: block;
-    }
+.hero-note p{
+margin:0;
+color:var(--muted);
+font-size:19px;
+line-height:1.75;
+max-width:560px;
+}
 
-    .placeholder {
-      border: 1px dashed rgba(83,111,112,.38);
-      width: 100%;
-      min-height: 220px;
-      display: grid;
-      place-items: center;
-      color: var(--accent-dark);
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 20px;
-    }
+.actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:34px;
+}
 
-    .product-body {
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+.button{
+border:1px solid var(--accent);
+color:var(--accent);
+padding:13px 18px;
+font-size:11px;
+letter-spacing:.24em;
+text-transform:uppercase;
+background:rgba(255,255,255,.22);
+transition:.22s ease;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+}
 
-    .product-body h3 {
-      margin: 0 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      font-weight: 400;
-      line-height: 1.15;
-    }
+.button:hover{
+background:var(--accent);
+color:white;
+transform:translateY(-2px);
+}
 
-    .product-body p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.7;
-    }
+.intro-panel{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+padding:34px;
+margin-bottom:56px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:34px;
+align-items:center;
+}
 
-    .product-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 22px;
-    }
+.intro-lead{
+font-family:Georgia,"Times New Roman",serif;
+font-size:31px;
+line-height:1.35;
+letter-spacing:-.04em;
+margin:0;
+}
 
-    .meta {
-      border: 1px solid rgba(83,111,112,.22);
-      padding: 8px 10px;
-      font-size: 12px;
-      color: var(--ink);
-      background: rgba(255,255,255,.5);
-    }
+.tags,
+.product-meta{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+}
 
-    footer {
-      margin-top: 80px;
-      padding-top: 28px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
+.tag,
+.meta{
+border:1px solid var(--line-dark);
+background:var(--tag-bg);
+color:#5e5852;
+font-size:10px;
+letter-spacing:.18em;
+text-transform:uppercase;
+padding:8px 10px;
+line-height:1;
+}
 
-    @media (max-width: 950px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 42px;
-      }
+.section{margin-bottom:56px}
 
-      nav {
-        flex-wrap: wrap;
-      }
+.section-header{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:20px;
+}
 
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 42px;
-      }
+.section-title{
+margin:0;
+color:var(--accent);
+letter-spacing:.34em;
+text-transform:uppercase;
+font-size:11px;
+font-weight:800;
+white-space:nowrap;
+}
 
-      .portrait-wrap {
-        width: 210px;
-      }
+.rule{
+height:1px;
+background:var(--line);
+flex:1;
+}
 
-      .intro-panel,
-      .feature-grid,
-      .project-grid,
-      .product-card {
-        grid-template-columns: 1fr;
-      }
+.product-list{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+}
 
-      .product-visual {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
+.product-card{
+display:grid;
+grid-template-columns:42% 1fr;
+border-bottom:1px solid var(--line);
+min-height:330px;
+}
 
-      footer {
-        flex-direction: column;
-      }
-    }
-  </style>
+.product-card:last-child{border-bottom:0}
+
+.product-visual{
+border-right:1px solid var(--line);
+background:
+linear-gradient(135deg,rgba(83,111,112,.08),rgba(251,248,242,.7));
+display:grid;
+place-items:center;
+padding:30px;
+transition:opacity .2s ease;
+}
+
+.product-visual:hover{opacity:.72}
+
+.product-visual img{
+width:100%;
+max-height:300px;
+object-fit:contain;
+display:block;
+}
+
+.placeholder{
+border:1px dashed var(--line-dark);
+width:100%;
+min-height:220px;
+display:grid;
+place-items:center;
+color:var(--accent);
+font-size:10px;
+letter-spacing:.25em;
+text-transform:uppercase;
+text-align:center;
+padding:20px;
+}
+
+.product-body{
+padding:34px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.label{
+color:var(--accent);
+font-size:10px;
+letter-spacing:.25em;
+text-transform:uppercase;
+font-weight:800;
+margin-bottom:14px;
+}
+
+.product-body h3{
+margin:0 0 16px;
+font-family:Georgia,"Times New Roman",serif;
+font-size:42px;
+line-height:1;
+letter-spacing:-.04em;
+font-weight:400;
+}
+
+.product-body h3 a{
+transition:opacity .2s ease;
+}
+
+.product-body h3 a:hover{opacity:.55}
+
+.product-body p{
+margin:0;
+color:var(--muted);
+font-size:15.5px;
+line-height:1.75;
+max-width:620px;
+}
+
+.product-meta{margin-top:24px}
+
+.feature-grid,
+.project-grid{
+display:grid;
+gap:18px;
+}
+
+.feature-grid{grid-template-columns:repeat(2,1fr)}
+.project-grid{grid-template-columns:repeat(3,1fr)}
+
+.feature-card,
+.project-card{
+border:1px solid var(--line-dark);
+background:rgba(251,248,242,.68);
+overflow:hidden;
+}
+
+.feature-image,
+.project-card img{
+width:100%;
+display:block;
+object-fit:cover;
+border-bottom:1px solid var(--line);
+transition:opacity .2s ease;
+}
+
+.feature-image{
+aspect-ratio:16/10;
+}
+
+.project-card img{
+aspect-ratio:1/1;
+background:var(--paper);
+}
+
+.feature-image:hover{opacity:.72}
+
+.feature-body,
+.project-body{
+padding:22px 24px 24px;
+}
+
+.feature-body p,
+.project-body p{
+margin:0;
+color:var(--muted);
+font-size:14.5px;
+line-height:1.65;
+}
+
+footer{
+margin-top:44px;
+border-top:1px solid var(--line);
+padding-top:20px;
+display:flex;
+justify-content:space-between;
+gap:20px;
+color:var(--faint);
+font-size:11px;
+letter-spacing:.26em;
+text-transform:uppercase;
+}
+
+@media(max-width:900px){
+main{
+width:min(100% - 32px,1180px);
+padding:42px 0;
+}
+
+.archive-header,
+footer{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.nav{flex-wrap:wrap}
+
+.hero,
+.intro-panel,
+.product-card,
+.feature-grid,
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.hero-title,
+.hero-note{min-height:auto}
+
+.product-visual{
+border-right:0;
+border-bottom:1px solid var(--line);
+}
+
+.product-body h3{font-size:34px}
+}
+</style>
 </head>
 
 <body>
-  <main class="page">
-    <header>
-      <a class="brand" href="index.html">Julie Kendra</a>
+<main>
 
-      <nav>
-        <a class="active" href="work.html">Work</a>
-        <a href="art.html">Art Practice</a>
-        <a href="research.html">Research</a>
-      </nav>
-    </header>
+<header class="archive-header">
+<a class="site-label" href="index.html">julie kendra</a>
 
-    <section class="hero">
-      <div class="portrait-wrap">
-        <img class="portrait" src="portrait.jpg" alt="Julie Kendra">
-      </div>
+<nav class="nav">
+<a href="index.html">index</a>
+<a class="active" href="work.html">work</a>
+<a href="art.html">art practice</a>
+<a href="research.html">research</a>
+<a href="cv.html">cv</a>
+</nav>
+</header>
 
-      <div>
-        <div class="eyebrow">Systems • Art • Research</div>
-        <h1>Work</h1>
-        <p class="subline">
-          Creative development, product design, research communication and visual systems for fast-moving teams.
-        </p>
+<section class="hero">
+<div class="hero-title">
+<div>
+<div class="eyebrow">systems / product design / visual research</div>
+<h1>work</h1>
+</div>
 
-        <div class="actions">
-          <a class="button" href="cv.html">Open CV</a>
-          <a class="button" href="#selected-web design">Selected Work</a>
-        </div>
-      </div>
-    </section>
+<div class="actions">
+<a class="button" href="cv.html">open cv</a>
+</div>
+</div>
 
-    <section class="intro-panel">
-      <div>
-        <div class="section-label label">Work</div>
-      <p class="intro-lead">
- Selected product systems, web, UI/UX and research led graphics for blogs.
+<div class="hero-note">
+<p>
+selected product systems, web, UI/UX and research-led graphics for fast-moving teams, experimental products and visual communication projects.
 </p>
-      </div>
-
-      <div>
-
-        <div class="chips" style="margin-top: 22px;">
-          <span class="chip">Creative Development</span>
-          <span class="chip">Product Design</span>
-          <span class="chip">Visual Systems</span>
-          <span class="chip">Research Communication</span>
-          <span class="chip">Web Environments</span>
-        </div>
-      </div>
-    </section>
-
-<section class="section" id="product-design">
-      <div class="section-header">
-        <h2>Product Design</h2>
-        <div class="rule"></div>
-      </div>
-
-      <article class="product-card">
-  <div class="product-visual">
-    <img src="product_4.jpg" alt="Pixelcrush product design placeholder" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-    <div class="placeholder" style="display:none;">Add product image<br>product_4.jpg</div>
-  </div>
-
-  <div class="product-body">
-    <div class="label">Product System</div>
-    <h3>Pixelcrush</h3>
-    <p>
-      <p>
-  Experimental matchmaking platform focused on intentional connection 
-  over algorithmic overload. It replaces swipe culture with private 
-  introductions through a matchmaker, audio-first chemistry, 
-  progressive interaction layers and curated compatibility systems 
-  designed to reduce anxiety and encourage real connection.
-</p>
-    </p>
-
-    <div class="product-meta">
-      <span class="meta">Creative Tools</span>
-      <span class="meta">UI/UX</span>
-      <span class="meta">Interactive Design</span>
-    </div>
-  </div>
-</article>
-
-      <article class="product-card">
-        <div class="product-visual">
-          <img src="product_1.png" alt="Orange product design placeholder" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-          <div class="placeholder" style="display:none;">Add product image<br>product_1.png</div>
-        </div>
-
-        <div class="product-body">
-          <div class="label">Product System</div>
-          <h3>Orange</h3>
-          <p>
-            Product concept and interface direction for a clean digital system. Replace this text with the actual product,
-            user flow, brand logic or design notes when ready.
-          </p>
-
-          <div class="product-meta">
-            <span class="meta">Interface</span>
-            <span class="meta">Visual System</span>
-            <span class="meta">Brand Logic</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-visual">
-          <img src="product_2.png" alt="Bluewire product design placeholder" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-          <div class="placeholder" style="display:none;">Add product image<br>product_2.png</div>
-        </div>
-
-        <div class="product-body">
-          <div class="label">Product System</div>
-          <h3>Bluewire</h3>
-          <p>
-            Product design, structure and user-facing presentation for a technical or operations-centered digital concept.
-            Replace this with screenshots, flows or project summary.
-          </p>
-
-          <div class="product-meta">
-            <span class="meta">UX Structure</span>
-            <span class="meta">Systems Design</span>
-            <span class="meta">Presentation</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-visual">
-          <img src="product_3.png" alt="Lifedata product design placeholder" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-          <div class="placeholder" style="display:none;">Add product image<br>src="product_3.png"</div>
-        </div>
-
-        <div class="product-body">
-          <div class="label">Product System</div>
-          <h3>Lifedata</h3>
-          <p>
-            Data-facing product concept for organizing information, trust signals and user interpretation. Replace this
-            with your strongest product design language later.
-          </p>
-
-          <div class="product-meta">
-            <span class="meta">Data Interface</span>
-            <span class="meta">Information Design</span>
-            <span class="meta">Trust Systems</span>
-          </div>
-        </div>
-      </article>
-    </section>
-
-<section class="section" id="selected-web designs">
-
-  <div class="section-header">
-    <h2>Selected Web Design</h2>
-    <div class="rule"></div>
-  </div>
-
-  <div class="feature-grid">
-
-    <article class="feature-card">
-
-      <a href="https://youtu.be/p569xQVXjcY" target="_blank" rel="noopener">
-        <img class="feature-image" src="webdesign_sunlab.jpg" alt="Sunlab Solutions">
-      </a>
-
-      <div class="feature-body">
-        <div class="label">Sunlab Solutions</div>
-        <p>
-          2023
-        </p>
-      </div>
-
-    </article>
-
-    <article class="feature-card">
-
-      <a href="https://youtu.be/S_YHPMQ5faI" target="_blank" rel="noopener">
-        <img class="feature-image" src="webdesign_disrupt.jpg" alt="Disrupt Events">
-      </a>
-
-      <div class="feature-body">
-        <div class="label">Disrupt Events</div>
-        <p>
-          2021
-        </p>
-      </div>
-
-    </article>
-
-  </div>
-
+</div>
 </section>
 
-    <section class="section" id="editorial-graphics">
-      <div class="section-header">
-        <h2>Editorial Graphics</h2>
-        <div class="rule"></div>
-      </div>
+<section class="intro-panel">
+<div>
+<div class="label">work</div>
+<p class="intro-lead">
+product concepts, interfaces and visual systems organized as clean portfolio case studies.
+</p>
+</div>
 
-      <div class="project-grid">
-        <article class="project-card">
-          <img src="design_1.jpg" alt="Health explainer graphic">
-          <div class="project-body">
-            <div class="label">Health Explainer</div>
-            <p>Nitrites / NOCs / DNA damage visual pathway</p>
-            <p>2026</p>
-          </div>
-        </article>
+<div class="tags">
+<span class="tag">creative development</span>
+<span class="tag">product design</span>
+<span class="tag">visual systems</span>
+<span class="tag">research communication</span>
+<span class="tag">web environments</span>
+</div>
+</section>
 
-        <article class="project-card">
-          <img src="design_2.jpg" alt="Water systems graphic">
-          <div class="project-body">
-            <div class="label">Water Systems</div>
-            <p>Glass does not equal purity campaign image</p>
-            <p>2026</p>
-          </div>
-        </article>
+<section class="section" id="product-design">
+<div class="section-header">
+<h2 class="section-title">product design</h2>
+<div class="rule"></div>
+</div>
 
-        <article class="project-card">
-          <img src="design_3.jpg" alt="Source mapping graphic">
-          <div class="project-body">
-            <div class="label">Source Mapping</div>
-            <p>Single source / multiple sources visual comparison</p>
-            <p>2026</p>
-          </div>
-        </article>
+<div class="product-list">
 
-        <article class="project-card">
-          <img src="design_4.jpg" alt="Contaminants visualization">
-          <div class="project-body">
-            <div class="label">Contaminants</div>
-            <p>Trihalomethane contamination visualization</p>
-            <p>2026</p>
-          </div>
-        </article>
+<article class="product-card">
+<a class="product-visual" href="pixelcrush.html">
+<img src="pixelcrush.png" alt="Pixelcrush preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+<div class="placeholder" style="display:none;">add product image<br>pixelcrush.png</div>
+</a>
 
-        <article class="project-card">
-          <img src="design_5.jpg" alt="Microplastics visual system">
-          <div class="project-body">
-            <div class="label">Microplastics</div>
-            <p>Exposure starts here visual system</p>
-            <p>2026</p>
-          </div>
-        </article>
+<div class="product-body">
+<div class="label">product system</div>
+<h3><a href="pixelcrush.html">Pixelcrush</a></h3>
+<p>
+Experimental matchmaking platform focused on intentional connection over algorithmic overload. It replaces swipe culture with private introductions through a matchmaker, audio-first chemistry, progressive interaction layers and curated compatibility systems designed to reduce anxiety and encourage real connection.
+</p>
 
-        <article class="project-card">
-          <img src="design_6.jpg" alt="Mechanism visualization">
-          <div class="project-body">
-            <div class="label">Mechanism</div>
-            <p>Bind and remove mechanism visualization</p>
-            <p>2026</p>
-          </div>
-        </article>
-      </div>
-    </section>
+<div class="product-meta">
+<span class="meta">audio first</span>
+<span class="meta">ui/ux</span>
+<span class="meta">compatibility systems</span>
+</div>
+</div>
+</article>
 
-    <footer>
-      <div>jkendra.dev</div>
-      <div>creative development • product design • research communication</div>
-    </footer>
-  </main>
+<article class="product-card">
+<a class="product-visual" href="orange.html">
+<img src="orange.png" alt="Orange preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+<div class="placeholder" style="display:none;">add product image<br>orange.png</div>
+</a>
+
+<div class="product-body">
+<div class="label">product system</div>
+<h3><a href="orange.html">Orange</a></h3>
+<p>
+Product concept and interface direction for a clean digital system centered around approachable interaction, visual softness and lightweight onboarding experiences.
+</p>
+
+<div class="product-meta">
+<span class="meta">interface</span>
+<span class="meta">visual system</span>
+<span class="meta">brand logic</span>
+</div>
+</div>
+</article>
+
+<article class="product-card">
+<a class="product-visual" href="bluewire.html">
+<img src="bluewire.png" alt="Bluewire preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+<div class="placeholder" style="display:none;">add product image<br>bluewire.png</div>
+</a>
+
+<div class="product-body">
+<div class="label">product system</div>
+<h3><a href="bluewire.html">Bluewire</a></h3>
+<p>
+Technical product concept focused on audits, environmental systems and structured user-facing reporting. Designed around clarity, prioritization and operational simplicity.
+</p>
+
+<div class="product-meta">
+<span class="meta">ux structure</span>
+<span class="meta">systems design</span>
+<span class="meta">presentation</span>
+</div>
+</div>
+</article>
+
+<article class="product-card">
+<a class="product-visual" href="lifedate.html">
+<img src="lifedata.png" alt="Lifedata preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+<div class="placeholder" style="display:none;">add product image<br>lifedata.png</div>
+</a>
+
+<div class="product-body">
+<div class="label">product system</div>
+<h3><a href="lifedata.html">Lifedata</a></h3>
+<p>
+Data-facing product concept for organizing personal and family health information through structured records, exportable systems and readable medical dashboards.
+</p>
+
+<div class="product-meta">
+<span class="meta">data interface</span>
+<span class="meta">information design</span>
+<span class="meta">trust systems</span>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="section" id="selected-web-designs">
+<div class="section-header">
+<h2 class="section-title">selected web design</h2>
+<div class="rule"></div>
+</div>
+
+<div class="feature-grid">
+
+<article class="feature-card">
+<a href="https://youtu.be/p569xQVXjcY" target="_blank" rel="noopener">
+<img class="feature-image" src="webdesign_sunlab.jpg" alt="Sunlab Solutions">
+</a>
+<div class="feature-body">
+<div class="label">sunlab solutions</div>
+<p>2023</p>
+</div>
+</article>
+
+<article class="feature-card">
+<a href="https://youtu.be/S_YHPMQ5faI" target="_blank" rel="noopener">
+<img class="feature-image" src="webdesign_disrupt.jpg" alt="Disrupt Events">
+</a>
+<div class="feature-body">
+<div class="label">disrupt events</div>
+<p>2021</p>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="section" id="editorial-graphics">
+<div class="section-header">
+<h2 class="section-title">editorial graphics</h2>
+<div class="rule"></div>
+</div>
+
+<div class="project-grid">
+<article class="project-card">
+<img src="design_1.jpg" alt="Health explainer graphic">
+<div class="project-body">
+<div class="label">health explainer</div>
+<p>Nitrites / NOCs / DNA damage visual pathway</p>
+<p>2026</p>
+</div>
+</article>
+
+<article class="project-card">
+<img src="design_2.jpg" alt="Water systems graphic">
+<div class="project-body">
+<div class="label">water systems</div>
+<p>Glass does not equal purity campaign image</p>
+<p>2026</p>
+</div>
+</article>
+
+<article class="project-card">
+<img src="design_3.jpg" alt="Source mapping graphic">
+<div class="project-body">
+<div class="label">source mapping</div>
+<p>Single source / multiple sources visual comparison</p>
+<p>2026</p>
+</div>
+</article>
+
+<article class="project-card">
+<img src="design_4.jpg" alt="Contaminants visualization">
+<div class="project-body">
+<div class="label">contaminants</div>
+<p>Trihalomethane contamination visualization</p>
+<p>2026</p>
+</div>
+</article>
+
+<article class="project-card">
+<img src="design_5.jpg" alt="Microplastics visual system">
+<div class="project-body">
+<div class="label">microplastics</div>
+<p>Exposure starts here visual system</p>
+<p>2026</p>
+</div>
+</article>
+
+<article class="project-card">
+<img src="design_6.jpg" alt="Mechanism visualization">
+<div class="project-body">
+<div class="label">mechanism</div>
+<p>Bind and remove mechanism visualization</p>
+<p>2026</p>
+</div>
+</article>
+</div>
+</section>
+
+<footer>
+<span>jkendra.dev/work</span>
+<span>creative development / product design / research communication</span>
+</footer>
+
+</main>
 </body>
 </html>
